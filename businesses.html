@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Businesses – Aylesbury Business Directory</title>
+  <meta name="description" content="Browse all local businesses in Aylesbury and Buckinghamshire. Filter by category, search by name, and find the services you need." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🏘️</span>
+        <span class="logo-text">Aylesbury<strong>Business</strong></span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="businesses.html" class="nav-link active">All Businesses</a>
+        <a href="index.html#categories" class="nav-link">Categories</a>
+        <a href="add-listing.html" class="btn btn-primary btn-sm">Add Your Business</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 id="page-title">All Businesses</h1>
+      <p id="page-subtitle">Browse local businesses across Aylesbury and Buckinghamshire</p>
+    </div>
+  </section>
+
+  <!-- Listings -->
+  <section class="section listings-section">
+    <div class="container listings-layout">
+
+      <!-- Sidebar Filters -->
+      <aside class="filters-sidebar">
+        <div class="filter-block">
+          <h3>Search</h3>
+          <input type="text" id="search-input" class="filter-input" placeholder="Business name or keyword…" />
+        </div>
+        <div class="filter-block">
+          <h3>Category</h3>
+          <ul class="filter-list" id="category-filters">
+            <li><label class="filter-label"><input type="radio" name="category" value="" checked /> All Categories</label></li>
+            <li><label class="filter-label"><input type="radio" name="category" value="trades" /> 🔧 Trades &amp; Home</label></li>
+            <li><label class="filter-label"><input type="radio" name="category" value="food-drink" /> 🍽️ Food &amp; Drink</label></li>
+            <li><label class="filter-label"><input type="radio" name="category" value="health-beauty" /> 💆 Health &amp; Beauty</label></li>
+            <li><label class="filter-label"><input type="radio" name="category" value="automotive" /> 🚗 Automotive</label></li>
+            <li><label class="filter-label"><input type="radio" name="category" value="professional-services" /> 💼 Professional Services</label></li>
+            <li><label class="filter-label"><input type="radio" name="category" value="retail" /> 🛍️ Retail &amp; Shopping</label></li>
+          </ul>
+        </div>
+        <div class="filter-block">
+          <h3>Listing Type</h3>
+          <ul class="filter-list">
+            <li><label class="filter-label"><input type="radio" name="tier" value="" checked /> All Listings</label></li>
+            <li><label class="filter-label"><input type="radio" name="tier" value="featured" /> ⭐ Featured</label></li>
+            <li><label class="filter-label"><input type="radio" name="tier" value="standard" /> Standard</label></li>
+          </ul>
+        </div>
+        <button class="btn btn-outline btn-sm reset-btn" onclick="resetFilters()">Reset Filters</button>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="listings-main">
+        <div class="listings-toolbar">
+          <span id="results-count" class="results-count">Loading…</span>
+          <select id="sort-select" class="filter-select" onchange="applyFilters()">
+            <option value="featured">Featured First</option>
+            <option value="newest">Newest First</option>
+            <option value="az">A–Z</option>
+          </select>
+        </div>
+        <div id="listings-grid" class="listings-list">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+        <p class="no-results hidden" id="no-results">No businesses found. <a href="businesses.html">Clear filters</a></p>
+      </main>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🏘️</span>
+          <span class="logo-text">Aylesbury<strong>Business</strong></span>
+        </a>
+        <p>The local business directory for Aylesbury and Buckinghamshire.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="businesses.html?category=trades">Trades &amp; Home</a></li>
+          <li><a href="businesses.html?category=food-drink">Food &amp; Drink</a></li>
+          <li><a href="businesses.html?category=health-beauty">Health &amp; Beauty</a></li>
+          <li><a href="businesses.html?category=automotive">Automotive</a></li>
+          <li><a href="businesses.html?category=professional-services">Professional Services</a></li>
+          <li><a href="businesses.html?category=retail">Retail &amp; Shopping</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>More</h4>
+        <ul>
+          <li><a href="add-listing.html">Add Your Business</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 AylesburyBusiness. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let allListings = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get('category');
+      const qParam = params.get('q');
+
+      loadListings().then(listings => {
+        allListings = listings;
+
+        if (catParam) {
+          const radio = document.querySelector(`input[name="category"][value="${catParam}"]`);
+          if (radio) radio.checked = true;
+          const catLabel = getCategoryLabel(catParam);
+          document.getElementById('page-title').textContent = catLabel;
+          document.getElementById('page-subtitle').textContent = `Browse ${catLabel} businesses in Aylesbury`;
+        }
+        if (qParam) {
+          document.getElementById('search-input').value = qParam;
+        }
+
+        applyFilters();
+      });
+
+      document.getElementById('search-input').addEventListener('input', debounce(applyFilters, 250));
+      document.querySelectorAll('input[name="category"], input[name="tier"]').forEach(el => {
+        el.addEventListener('change', applyFilters);
+      });
+    });
+
+    function applyFilters() {
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+      const category = document.querySelector('input[name="category"]:checked').value;
+      const tier = document.querySelector('input[name="tier"]:checked').value;
+      const sort = document.getElementById('sort-select').value;
+
+      let results = allListings.filter(b => {
+        const matchesQuery = !query || b.name.toLowerCase().includes(query) || b.description.toLowerCase().includes(query) || (b.tags || []).some(t => t.toLowerCase().includes(query)) || b.subcategory.toLowerCase().includes(query);
+        const matchesCat = !category || b.category === category;
+        const matchesTier = !tier || b.tier === tier;
+        return matchesQuery && matchesCat && matchesTier;
+      });
+
+      if (sort === 'featured') {
+        results.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      } else if (sort === 'newest') {
+        results.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+      } else if (sort === 'az') {
+        results.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      const countEl = document.getElementById('results-count');
+      const grid = document.getElementById('listings-grid');
+      const noResults = document.getElementById('no-results');
+
+      countEl.textContent = `${results.length} business${results.length !== 1 ? 'es' : ''} found`;
+
+      if (results.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        grid.innerHTML = results.map(b => renderListingCard(b)).join('');
+      }
+    }
+
+    function resetFilters() {
+      document.getElementById('search-input').value = '';
+      document.querySelector('input[name="category"][value=""]').checked = true;
+      document.querySelector('input[name="tier"][value=""]').checked = true;
+      applyFilters();
+    }
+  </script>
+</body>
+</html>

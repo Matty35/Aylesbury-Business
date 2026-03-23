@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aylesbury Business Directory – Find Local Businesses in Aylesbury</title>
+  <meta name="description" content="Discover the best local businesses in Aylesbury, Buckinghamshire. Search trades, restaurants, shops, health & beauty, automotive and professional services." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🏘️</span>
+        <span class="logo-text">Aylesbury<strong>Business</strong></span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="businesses.html" class="nav-link">All Businesses</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="add-listing.html" class="btn btn-primary btn-sm">Add Your Business</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Find the Best Local Businesses in <span class="highlight">Aylesbury</span></h1>
+        <p class="hero-subtitle">Your trusted directory for Aylesbury and Buckinghamshire – from trades and restaurants to shops and professional services.</p>
+      </div>
+      <div class="search-bar-wrap">
+        <form class="search-form" onsubmit="handleHeroSearch(event)">
+          <input type="text" id="hero-search" class="search-input" placeholder="Search businesses, trades, restaurants…" autocomplete="off" />
+          <select id="hero-category" class="search-select">
+            <option value="">All Categories</option>
+            <option value="trades">Trades &amp; Home</option>
+            <option value="food-drink">Food &amp; Drink</option>
+            <option value="health-beauty">Health &amp; Beauty</option>
+            <option value="automotive">Automotive</option>
+            <option value="professional-services">Professional Services</option>
+            <option value="retail">Retail &amp; Shopping</option>
+          </select>
+          <button type="submit" class="btn btn-primary search-btn">Search</button>
+        </form>
+      </div>
+      <div class="hero-stats">
+        <span><strong id="total-count">–</strong> businesses listed</span>
+        <span>•</span>
+        <span>Aylesbury &amp; Buckinghamshire</span>
+        <span>•</span>
+        <span>Free to search</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Businesses -->
+  <section class="section featured-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Businesses</h2>
+        <a href="businesses.html" class="section-link">View all →</a>
+      </div>
+      <div class="cards-grid" id="featured-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section categories-section" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2>Browse by Category</h2>
+      </div>
+      <div class="category-grid">
+        <a href="businesses.html?category=trades" class="category-card">
+          <span class="cat-icon">🔧</span>
+          <span class="cat-name">Trades &amp; Home</span>
+          <span class="cat-count" data-cat="trades">–</span>
+        </a>
+        <a href="businesses.html?category=food-drink" class="category-card">
+          <span class="cat-icon">🍽️</span>
+          <span class="cat-name">Food &amp; Drink</span>
+          <span class="cat-count" data-cat="food-drink">–</span>
+        </a>
+        <a href="businesses.html?category=health-beauty" class="category-card">
+          <span class="cat-icon">💆</span>
+          <span class="cat-name">Health &amp; Beauty</span>
+          <span class="cat-count" data-cat="health-beauty">–</span>
+        </a>
+        <a href="businesses.html?category=automotive" class="category-card">
+          <span class="cat-icon">🚗</span>
+          <span class="cat-name">Automotive</span>
+          <span class="cat-count" data-cat="automotive">–</span>
+        </a>
+        <a href="businesses.html?category=professional-services" class="category-card">
+          <span class="cat-icon">💼</span>
+          <span class="cat-name">Professional Services</span>
+          <span class="cat-count" data-cat="professional-services">–</span>
+        </a>
+        <a href="businesses.html?category=retail" class="category-card">
+          <span class="cat-icon">🛍️</span>
+          <span class="cat-name">Retail &amp; Shopping</span>
+          <span class="cat-count" data-cat="retail">–</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Listings -->
+  <section class="section recent-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Recently Added</h2>
+        <a href="businesses.html" class="section-link">View all →</a>
+      </div>
+      <div class="cards-grid cards-grid--3" id="recent-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <div>
+        <h2>Own a business in Aylesbury?</h2>
+        <p>Get listed in the directory for free and reach thousands of local customers.</p>
+      </div>
+      <a href="add-listing.html" class="btn btn-white btn-lg">Add Your Business – Free</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🏘️</span>
+          <span class="logo-text">Aylesbury<strong>Business</strong></span>
+        </a>
+        <p>The local business directory for Aylesbury and Buckinghamshire.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Directory</h4>
+        <ul>
+          <li><a href="businesses.html">All Businesses</a></li>
+          <li><a href="businesses.html?category=trades">Trades &amp; Home</a></li>
+          <li><a href="businesses.html?category=food-drink">Food &amp; Drink</a></li>
+          <li><a href="businesses.html?category=health-beauty">Health &amp; Beauty</a></li>
+          <li><a href="businesses.html?category=automotive">Automotive</a></li>
+          <li><a href="businesses.html?category=professional-services">Professional Services</a></li>
+          <li><a href="businesses.html?category=retail">Retail &amp; Shopping</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>More</h4>
+        <ul>
+          <li><a href="add-listing.html">Add Your Business</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 AylesburyBusiness. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadListings().then(listings => {
+        document.getElementById('total-count').textContent = listings.length;
+        updateCategoryCounts(listings);
+        renderFeatured(listings, 'featured-grid');
+        renderRecent(listings, 'recent-grid', 3);
+      });
+    });
+
+    function handleHeroSearch(e) {
+      e.preventDefault();
+      const query = document.getElementById('hero-search').value.trim();
+      const category = document.getElementById('hero-category').value;
+      const params = new URLSearchParams();
+      if (query) params.set('q', query);
+      if (category) params.set('category', category);
+      window.location.href = 'businesses.html' + (params.toString() ? '?' + params.toString() : '');
+    }
+  </script>
+</body>
+</html>

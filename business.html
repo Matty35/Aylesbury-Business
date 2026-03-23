@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Business – Aylesbury Business Directory</title>
+  <meta name="description" id="page-desc" content="Business listing on Aylesbury Business Directory." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🏘️</span>
+        <span class="logo-text">Aylesbury<strong>Business</strong></span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="businesses.html" class="nav-link">All Businesses</a>
+        <a href="index.html#categories" class="nav-link">Categories</a>
+        <a href="add-listing.html" class="btn btn-primary btn-sm">Add Your Business</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a> &rsaquo;
+      <a href="businesses.html">Businesses</a> &rsaquo;
+      <span id="breadcrumb-name">Loading…</span>
+    </div>
+  </div>
+
+  <!-- Business Profile -->
+  <section class="section profile-section">
+    <div class="container profile-layout">
+
+      <!-- Main Column -->
+      <main class="profile-main" id="profile-main">
+        <div class="skeleton-card" style="height:200px"></div>
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="profile-sidebar" id="profile-sidebar">
+        <div class="skeleton-card" style="height:300px"></div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🏘️</span>
+          <span class="logo-text">Aylesbury<strong>Business</strong></span>
+        </a>
+        <p>The local business directory for Aylesbury and Buckinghamshire.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="businesses.html?category=trades">Trades &amp; Home</a></li>
+          <li><a href="businesses.html?category=food-drink">Food &amp; Drink</a></li>
+          <li><a href="businesses.html?category=health-beauty">Health &amp; Beauty</a></li>
+          <li><a href="businesses.html?category=automotive">Automotive</a></li>
+          <li><a href="businesses.html?category=professional-services">Professional Services</a></li>
+          <li><a href="businesses.html?category=retail">Retail &amp; Shopping</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>More</h4>
+        <ul>
+          <li><a href="add-listing.html">Add Your Business</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 AylesburyBusiness. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+
+      if (!slug) {
+        window.location.href = 'businesses.html';
+        return;
+      }
+
+      loadListings().then(listings => {
+        const business = listings.find(b => b.slug === slug);
+        if (!business) {
+          document.getElementById('profile-main').innerHTML = '<div class="error-state"><h2>Business not found</h2><p><a href="businesses.html">Back to all businesses</a></p></div>';
+          return;
+        }
+
+        document.title = business.name + ' – Aylesbury Business Directory';
+        document.getElementById('page-desc').setAttribute('content', business.shortDescription);
+        document.getElementById('breadcrumb-name').textContent = business.name;
+
+        renderProfile(business);
+      });
+    });
+
+    function renderProfile(b) {
+      const catLabel = getCategoryLabel(b.category);
+      const tierBadge = b.tier === 'featured' ? '<span class="badge badge-featured">⭐ Featured</span>' : b.tier === 'standard' ? '<span class="badge badge-standard">Standard</span>' : '';
+
+      document.getElementById('profile-main').innerHTML = `
+        <div class="profile-header">
+          <div class="profile-avatar">${b.logo ? `<img src="${b.logo}" alt="${b.name} logo" />` : `<div class="avatar-placeholder">${b.name.charAt(0)}</div>`}</div>
+          <div class="profile-header-text">
+            <div class="profile-meta-row">
+              <a href="businesses.html?category=${b.category}" class="cat-tag">${catLabel}</a>
+              <span class="subcat-tag">${b.subcategory}</span>
+              ${tierBadge}
+            </div>
+            <h1 class="profile-name">${b.name}</h1>
+            <p class="profile-address">📍 ${b.address.street}, ${b.address.town}, ${b.address.postcode}</p>
+          </div>
+        </div>
+
+        <div class="profile-body">
+          <h2>About</h2>
+          <p>${b.description}</p>
+
+          ${b.tags && b.tags.length ? `
+          <div class="tags-row">
+            ${b.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+          </div>` : ''}
+        </div>
+      `;
+
+      const socialLinks = [];
+      if (b.social?.facebook) socialLinks.push(`<a href="${b.social.facebook}" class="social-link social-facebook" target="_blank" rel="noopener">Facebook</a>`);
+      if (b.social?.instagram) socialLinks.push(`<a href="${b.social.instagram}" class="social-link social-instagram" target="_blank" rel="noopener">Instagram</a>`);
+
+      document.getElementById('profile-sidebar').innerHTML = `
+        <div class="contact-card">
+          <h3>Contact</h3>
+          ${b.phone ? `<div class="contact-row"><span class="contact-icon">📞</span><a href="tel:${b.phone}" class="contact-link">${b.phone}</a></div>` : ''}
+          ${b.email ? `<div class="contact-row"><span class="contact-icon">✉️</span><a href="mailto:${b.email}" class="contact-link">${b.email}</a></div>` : ''}
+          ${b.website ? `<div class="contact-row"><span class="contact-icon">🌐</span><a href="${b.website}" class="contact-link" target="_blank" rel="noopener">${b.website.replace(/^https?:\/\//, '')}</a></div>` : ''}
+          ${b.address ? `
+          <div class="contact-row contact-address">
+            <span class="contact-icon">📍</span>
+            <address>
+              ${b.address.street}<br/>
+              ${b.address.town}<br/>
+              ${b.address.county}<br/>
+              ${b.address.postcode}
+            </address>
+          </div>` : ''}
+          ${b.website ? `<a href="${b.website}" class="btn btn-primary btn-full" target="_blank" rel="noopener">Visit Website</a>` : ''}
+          ${socialLinks.length ? `<div class="social-row">${socialLinks.join('')}</div>` : ''}
+        </div>
+        <div class="listing-info-card">
+          <p><strong>Listed:</strong> ${formatDate(b.dateAdded)}</p>
+          <p><strong>Category:</strong> <a href="businesses.html?category=${b.category}">${catLabel}</a></p>
+        </div>
+      `;
+    }
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+  </script>
+</body>
+</html>

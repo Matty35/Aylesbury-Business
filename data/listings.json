@@ -1,0 +1,170 @@
+[
+  {
+    "id": "1",
+    "name": "Aylesbury Plumbing Solutions",
+    "slug": "aylesbury-plumbing-solutions",
+    "category": "trades",
+    "subcategory": "Plumbing & Heating",
+    "tier": "featured",
+    "featured": true,
+    "description": "Aylesbury's most trusted plumbing and heating specialists with over 20 years of experience serving homes and businesses across Buckinghamshire. From emergency call-outs and boiler installations to bathroom refits and landlord certificates, our Gas Safe registered engineers deliver prompt, professional service at competitive rates. We're available 24/7 for emergencies and guarantee all our work for 12 months.",
+    "shortDescription": "Expert plumbing, heating and gas services for homes and businesses across Aylesbury and Buckinghamshire.",
+    "phone": "01296 112233",
+    "email": "info@aylesburyplumbing.co.uk",
+    "website": "https://www.aylesburyplumbing.co.uk",
+    "address": {
+      "street": "14 Walton Street",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP21 7QN"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://facebook.com/aylesburyplumbing",
+      "instagram": "https://instagram.com/aylesburyplumbing"
+    },
+    "dateAdded": "2024-11-01",
+    "tags": ["Gas Safe", "24/7 Emergency", "Boilers", "Bathrooms", "Landlord Certificates"]
+  },
+  {
+    "id": "2",
+    "name": "The Crown Kitchen",
+    "slug": "the-crown-kitchen",
+    "category": "food-drink",
+    "subcategory": "Restaurant",
+    "tier": "standard",
+    "featured": false,
+    "description": "A beloved Aylesbury institution serving modern British cuisine with a seasonal menu that celebrates the best of Buckinghamshire produce. From our famous Sunday roasts to weekday lunches and celebratory dinners, The Crown Kitchen offers a warm, relaxed atmosphere perfect for every occasion. Private dining available for up to 24 guests. Booking recommended at weekends.",
+    "shortDescription": "Modern British cuisine using seasonal Buckinghamshire produce. Sunday roasts, lunches and dinners in a relaxed setting.",
+    "phone": "01296 445566",
+    "email": "bookings@thecrown-kitchen.co.uk",
+    "website": "https://www.thecrown-kitchen.co.uk",
+    "address": {
+      "street": "8 Market Square",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP20 1AB"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://facebook.com/thecrownkitchen",
+      "instagram": "https://instagram.com/thecrownkitchen"
+    },
+    "dateAdded": "2024-11-15",
+    "tags": ["British Cuisine", "Sunday Roast", "Private Dining", "Seasonal Menu"]
+  },
+  {
+    "id": "3",
+    "name": "Glow Beauty & Wellness",
+    "slug": "glow-beauty-and-wellness",
+    "category": "health-beauty",
+    "subcategory": "Beauty Salon",
+    "tier": "free",
+    "featured": false,
+    "description": "A boutique beauty salon in the heart of Aylesbury offering a full range of treatments.",
+    "shortDescription": "Boutique beauty salon offering facials, nails, waxing and wellness treatments.",
+    "phone": "01296 778899",
+    "email": "",
+    "website": "https://www.glowbeautysalon.co.uk",
+    "address": {
+      "street": "22 High Street",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP20 1SB"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": "https://instagram.com/glowbeautyaylesbury"
+    },
+    "dateAdded": "2024-12-01",
+    "tags": ["Facials", "Nails", "Waxing", "Massage"]
+  },
+  {
+    "id": "4",
+    "name": "Bucks Auto Centre",
+    "slug": "bucks-auto-centre",
+    "category": "automotive",
+    "subcategory": "Garage & MOT",
+    "tier": "featured",
+    "featured": true,
+    "description": "Buckinghamshire's premier independent garage, Bucks Auto Centre has been keeping Aylesbury's vehicles on the road since 1998. Our team of fully qualified technicians handle everything from routine servicing and MOT testing to complex diagnostics and engine rebuilds. We work on all makes and models, offer competitive pricing, and provide free courtesy cars for longer jobs. Approved by leading warranty providers.",
+    "shortDescription": "Independent garage offering MOT testing, servicing and repairs on all makes and models. Free courtesy cars available.",
+    "phone": "01296 334455",
+    "email": "service@bucksautocentre.co.uk",
+    "website": "https://www.bucksautocentre.co.uk",
+    "address": {
+      "street": "Unit 7, Rabans Lane Industrial Estate",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP19 8RG"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://facebook.com/bucksautocentre",
+      "instagram": ""
+    },
+    "dateAdded": "2024-12-10",
+    "tags": ["MOT Testing", "Car Servicing", "Diagnostics", "All Makes", "Courtesy Car"]
+  },
+  {
+    "id": "5",
+    "name": "Peak Legal & Financial",
+    "slug": "peak-legal-and-financial",
+    "category": "professional-services",
+    "subcategory": "Solicitors",
+    "tier": "standard",
+    "featured": false,
+    "description": "Peak Legal & Financial is a full-service firm providing expert legal and financial advice to individuals and businesses throughout Buckinghamshire. Our experienced team of solicitors and financial advisers specialise in residential conveyancing, family law, wills and probate, commercial property, and independent financial planning. We pride ourselves on plain-English advice, transparent fees, and genuine personal service.",
+    "shortDescription": "Full-service solicitors and financial advisers specialising in conveyancing, family law, wills and commercial property.",
+    "phone": "01296 556677",
+    "email": "enquiries@peaklegal.co.uk",
+    "website": "https://www.peaklegal.co.uk",
+    "address": {
+      "street": "3 Bourbon Street",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP20 2PY"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://facebook.com/peaklegalfinancial",
+      "instagram": ""
+    },
+    "dateAdded": "2024-12-20",
+    "tags": ["Conveyancing", "Family Law", "Wills & Probate", "Commercial Property", "Financial Planning"]
+  },
+  {
+    "id": "6",
+    "name": "Market Square Boutique",
+    "slug": "market-square-boutique",
+    "category": "retail",
+    "subcategory": "Fashion & Clothing",
+    "tier": "free",
+    "featured": false,
+    "description": "Independent fashion boutique in Aylesbury town centre.",
+    "shortDescription": "Independent fashion boutique stocking women's clothing, accessories and gifts from independent designers.",
+    "phone": "01296 990011",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "5 Kingsbury Square",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP20 2JA"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": "https://instagram.com/marketsquareboutique"
+    },
+    "dateAdded": "2025-01-05",
+    "tags": ["Women's Fashion", "Accessories", "Independent Designer", "Gifts"]
+  }
+]
