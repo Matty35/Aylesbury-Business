@@ -880,6 +880,218 @@ address { font-style: normal; }
 .tier-card--featured .tier-price { color: var(--color-accent-dark); }
 
 /* ============================================================
+   Grow / MJL Online Services page
+   ============================================================ */
+
+/* Accent button (amber) */
+.btn-accent {
+  background: var(--color-accent);
+  color: #78350f;
+  border-color: var(--color-accent);
+  font-weight: 700;
+}
+.btn-accent:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: #78350f;
+  text-decoration: none;
+}
+
+/* Hero */
+.grow-hero {
+  background: linear-gradient(135deg, #1B2A4A 0%, #0f1e36 100%);
+  color: var(--color-white);
+  padding: 80px 0 72px;
+  text-align: center;
+}
+.grow-hero-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.grow-hero-badge {
+  display: inline-block;
+  background: rgba(245,158,11,.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245,158,11,.35);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 99px;
+}
+.grow-hero h1 { font-size: clamp(28px, 4vw, 52px); font-weight: 700; line-height: 1.15; max-width: 700px; }
+.grow-hero-sub { font-size: 18px; opacity: 0.88; max-width: 560px; }
+.grow-hero-trust { display: flex; gap: 12px; align-items: center; font-size: 14px; opacity: 0.7; flex-wrap: wrap; justify-content: center; }
+
+/* Section helpers */
+.section-header.centered { text-align: center; justify-content: center; flex-direction: column; gap: 8px; }
+.section-intro { color: var(--color-text-muted); font-size: 16px; max-width: 540px; margin: 0 auto; }
+
+/* Services */
+.grow-services-section { background: var(--color-white); }
+.grow-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.grow-service-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.grow-service-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.grow-service-card--highlight {
+  background: #1B2A4A;
+  border-color: #f59e0b;
+  color: var(--color-white);
+}
+.grow-service-card--highlight p, .grow-service-card--highlight .grow-service-points li { color: #cbd5e1; }
+.grow-service-card--highlight h3 { color: var(--color-white); }
+.grow-service-popular {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f59e0b;
+  color: #78350f;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 14px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.grow-service-icon { font-size: 40px; }
+.grow-service-card h3 { font-size: 19px; font-weight: 700; line-height: 1.3; }
+.grow-service-card p { font-size: 14px; color: var(--color-text-muted); line-height: 1.65; }
+.grow-service-points { list-style: none; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.grow-service-points li { font-size: 14px; color: var(--color-text-muted); }
+.grow-service-card--highlight .grow-service-points li { color: #94a3b8; }
+
+/* Why Us */
+.grow-why-section { background: var(--color-bg); }
+.grow-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.grow-why-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.grow-why-icon { font-size: 36px; display: block; margin-bottom: 12px; }
+.grow-why-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.grow-why-item p { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+
+/* Pricing */
+.grow-pricing-section {
+  background: linear-gradient(135deg, #1B2A4A 0%, #0f1e36 100%);
+  color: var(--color-white);
+}
+.grow-pricing-section .section-header.centered h2 { color: var(--color-white); }
+.grow-pricing-section .section-intro { color: #94a3b8; }
+.grow-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.grow-pricing-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+  position: relative;
+  transition: background var(--transition), border-color var(--transition);
+}
+.grow-pricing-card:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); }
+.grow-pricing-card--popular {
+  background: rgba(245,158,11,.12);
+  border-color: #f59e0b;
+}
+.grow-pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f59e0b;
+  color: #78350f;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 14px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.grow-pricing-icon { font-size: 36px; }
+.grow-pricing-card h3 { font-size: 18px; font-weight: 700; color: var(--color-white); }
+.grow-pricing-price { font-size: 28px; color: #fbbf24; }
+.grow-pricing-price strong { font-size: 36px; font-weight: 700; }
+.grow-pricing-period { font-size: 16px; opacity: 0.7; }
+.grow-pricing-card p { font-size: 13px; color: #94a3b8; line-height: 1.6; flex: 1; }
+.grow-pricing-smallprint {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 13px;
+  color: #64748b;
+}
+.grow-pricing-smallprint a { color: #94a3b8; }
+.grow-pricing-smallprint a:hover { color: #fbbf24; }
+
+/* Contact */
+.grow-contact-section { background: var(--color-bg); }
+.grow-contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 48px;
+  align-items: start;
+}
+.grow-contact-text h2 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+.grow-contact-text > p { color: var(--color-text-muted); font-size: 16px; margin-bottom: 28px; }
+.grow-contact-details { display: flex; flex-direction: column; gap: 14px; }
+.grow-contact-detail { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--color-text-muted); }
+.grow-contact-form-wrap {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 1024px) {
+  .grow-why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .grow-services-grid { grid-template-columns: 1fr; }
+  .grow-pricing-grid { grid-template-columns: 1fr; }
+  .grow-contact-inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .grow-why-grid { grid-template-columns: 1fr; }
+  .grow-hero { padding: 56px 0 48px; }
+  .grow-hero-trust { gap: 8px; font-size: 13px; }
+}
+
+/* ============================================================
    About / Contact pages
    ============================================================ */
 .content-page { padding: 48px 0 80px; }
