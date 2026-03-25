@@ -63,25 +63,46 @@ function renderCard(b) {
 // Render a horizontal listing card (businesses.html)
 function renderListingCard(b) {
   const catLabel = getCategoryLabel(b.category);
-  const tierBadge = b.tier === 'featured' ? '<span class="badge badge-featured">⭐ Featured</span>' : b.tier === 'standard' ? '<span class="badge badge-standard">Standard</span>' : '';
+  const isFeatured = b.tier === 'featured';
+  const tierBadge = isFeatured
+    ? '<span class="badge badge-featured">⭐ Featured</span>'
+    : b.tier === 'standard' ? '<span class="badge badge-standard">Standard</span>' : '';
   const initial = b.name.charAt(0).toUpperCase();
 
-  return `
-    <a href="business.html?slug=${b.slug}" class="listing-card${b.featured ? ' is-featured' : ''}">
-      <div class="listing-avatar">${b.logo ? `<img src="${b.logo}" alt="${b.name}" />` : initial}</div>
-      <div class="listing-content">
-        <div class="listing-title-row">
-          <span class="listing-name">${b.name}</span>
-          <span class="cat-badge">${catLabel}</span>
-          ${tierBadge}
-        </div>
-        <p class="listing-desc">${b.shortDescription}</p>
-        <div class="listing-footer">
-          ${b.address ? `<span class="listing-address">📍 ${b.address.town}, ${b.address.postcode}</span>` : ''}
-          ${b.phone ? `<span class="listing-phone">📞 ${b.phone}</span>` : ''}
-          <span class="btn btn-primary btn-sm listing-cta">View →</span>
-        </div>
+  const websiteLink = isFeatured && b.website
+    ? `<a href="${b.website}" class="listing-website-link" target="_blank" rel="noopener" onclick="event.stopPropagation()">🌐 Visit Website</a>`
+    : '';
+
+  const cardInner = `
+    <div class="listing-avatar">${b.logo ? `<img src="${b.logo}" alt="${b.name}" />` : initial}</div>
+    <div class="listing-content">
+      <div class="listing-title-row">
+        <span class="listing-name">${b.name}</span>
+        <span class="cat-badge">${catLabel}</span>
+        ${tierBadge}
       </div>
+      <p class="listing-desc">${b.shortDescription}</p>
+      <div class="listing-footer">
+        ${b.address ? `<span class="listing-address">📍 ${b.address.town}, ${b.address.postcode}</span>` : ''}
+        ${b.phone ? `<span class="listing-phone">📞 ${b.phone}</span>` : ''}
+        ${websiteLink}
+        <span class="btn btn-primary btn-sm listing-cta">View Profile →</span>
+      </div>
+    </div>
+  `;
+
+  if (isFeatured) {
+    return `
+      <a href="business.html?slug=${b.slug}" class="listing-card is-featured">
+        <div class="featured-banner">⭐ Featured Listing</div>
+        <div class="listing-card-body">${cardInner}</div>
+      </a>
+    `;
+  }
+
+  return `
+    <a href="business.html?slug=${b.slug}" class="listing-card">
+      ${cardInner}
     </a>
   `;
 }

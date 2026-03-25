@@ -171,13 +171,18 @@
         return matchesQuery && matchesCat && matchesTier;
       });
 
-      if (sort === 'featured') {
-        results.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
-      } else if (sort === 'newest') {
-        results.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
-      } else if (sort === 'az') {
-        results.sort((a, b) => a.name.localeCompare(b.name));
-      }
+      // Secondary sort within each group
+      const secondarySort = (a, b) => {
+        if (sort === 'newest') return new Date(b.dateAdded) - new Date(a.dateAdded);
+        if (sort === 'az') return a.name.localeCompare(b.name);
+        return 0;
+      };
+      // Featured always pinned to top, sorted among themselves, then others below
+      results.sort((a, b) => {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+        return secondarySort(a, b);
+      });
 
       const countEl = document.getElementById('results-count');
       const grid = document.getElementById('listings-grid');
