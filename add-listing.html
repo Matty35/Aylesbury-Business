@@ -226,32 +226,32 @@
 
   <script src="js/main.js"></script>
   <script>
-    const STRIPE_LINKS = {
-      standard: 'https://buy.stripe.com/28E7sN0k74bQev70ZXb7y00',
-      featured: 'https://buy.stripe.com/fZucN7aYLgYC5YB7olb7y01',
-    };
+    const PAID_TIERS = ['standard', 'featured'];
 
     function applyTier(tier) {
       const paidFields = document.getElementById('paid-fields');
       const notice     = document.getElementById('payment-notice');
       const btn        = document.getElementById('submit-btn');
+      const form       = document.getElementById('add-listing-form');
       const category   = document.getElementById('biz-category');
       const desc       = document.getElementById('biz-desc');
 
-      if (tier === 'standard' || tier === 'featured') {
+      if (PAID_TIERS.includes(tier)) {
         paidFields.classList.remove('hidden');
         notice.classList.remove('hidden');
         btn.textContent = 'Submit & Pay →';
-        // Make paid-only required fields active
         category.required = true;
         desc.required = true;
+        // Route to paid function — it saves listing then redirects to Stripe
+        form.action = '/.netlify/functions/create-paid-listing';
       } else {
         paidFields.classList.add('hidden');
         notice.classList.add('hidden');
         btn.textContent = 'Submit Your Listing';
-        // Remove required from hidden fields so free form submits cleanly
         category.required = false;
         desc.required = false;
+        // Route to free function — adds directly to listings.json
+        form.action = '/.netlify/functions/submit-listing';
       }
     }
 
@@ -266,7 +266,7 @@
       });
     });
 
-    // Run on page load to match the default checked tier (Free)
+    // Set correct defaults on page load
     applyTier('free');
 
     // Logo upload preview
@@ -301,20 +301,7 @@
       document.getElementById('logo-upload-prompt').classList.remove('hidden');
     }
 
-    function handleFormSubmit(e) {
-      const tier = document.querySelector('input[name="tier"]:checked').value;
-
-      if (STRIPE_LINKS[tier]) {
-        // Paid tier: prevent default form POST and go to Stripe instead
-        e.preventDefault();
-        e.target.querySelectorAll('input,textarea,select,button').forEach(el => el.disabled = true);
-        document.getElementById('payment-notice').innerHTML = '⏳ Redirecting you to secure payment…';
-        setTimeout(() => { window.location.href = STRIPE_LINKS[tier]; }, 1200);
-      }
-      // Free tier: let the form POST naturally to FormSubmit → redirects to ?sent=1
-    }
-
-    // Show success message on return from FormSubmit
+    // Show success message on return after free listing submission
     if (new URLSearchParams(window.location.search).get('sent') === '1') {
       document.addEventListener('DOMContentLoaded', () => {
         const el = document.getElementById('form-success');
