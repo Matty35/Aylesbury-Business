@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Montserrat:wght@300;400;600&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="400" fill="#1B2A4A"/>
+  <!-- Subtle grid texture -->
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="400" height="400" fill="url(#grid)"/>
+  <!-- Outer thin ring -->
+  <circle cx="200" cy="200" r="168" fill="none" stroke="#F59E0B" stroke-width="1" opacity="0.4"/>
+  <!-- Inner accent ring -->
+  <circle cx="200" cy="200" r="155" fill="none" stroke="#F59E0B" stroke-width="0.5" opacity="0.2"/>
+  <!-- Top arc text path -->
+  <path id="topArc" d="M 55,200 A 145,145 0 0,1 345,200" fill="none"/>
+  <!-- Bottom arc text path -->
+  <path id="bottomArc" d="M 75,220 A 130,130 0 0,0 325,220" fill="none"/>
+  <!-- Corner decorative marks at 4 compass points -->
+  <line x1="200" y1="28" x2="200" y2="42" stroke="#F59E0B" stroke-width="1.5" opacity="0.7"/>
+  <line x1="200" y1="358" x2="200" y2="372" stroke="#F59E0B" stroke-width="1.5" opacity="0.7"/>
+  <line x1="28" y1="200" x2="42" y2="200" stroke="#F59E0B" stroke-width="1.5" opacity="0.7"/>
+  <line x1="358" y1="200" x2="372" y2="200" stroke="#F59E0B" stroke-width="1.5" opacity="0.7"/>
+  <!-- Thin horizontal rule above text -->
+  <line x1="110" y1="172" x2="290" y2="172" stroke="#F59E0B" stroke-width="0.75" opacity="0.5"/>
+  <!-- Thin horizontal rule below text -->
+  <line x1="110" y1="238" x2="290" y2="238" stroke="#F59E0B" stroke-width="0.75" opacity="0.5"/>
+  <!-- Main wordmark: AYLESBURY -->
+  <text
+    x="200"
+    y="210"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="'Playfair Display', Georgia, serif"
+    font-size="38"
+    font-weight="700"
+    letter-spacing="6"
+    fill="#FFFFFF"
+  >AYLESBURY</text>
+  <!-- Sub wordmark: BUSINESS -->
+  <text
+    x="200"
+    y="233"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="'Montserrat', Helvetica, sans-serif"
+    font-size="13"
+    font-weight="300"
+    letter-spacing="10"
+    fill="#F59E0B"
+  >BUSINESS</text>
+  <!-- Small diamond above main text -->
+  <polygon points="200,158 204,164 200,170 196,164" fill="#F59E0B" opacity="0.8"/>
+  <!-- EST label below rule -->
+  <text
+    x="200"
+    y="252"
+    text-anchor="middle"
+    font-family="'Montserrat', Helvetica, sans-serif"
+    font-size="9"
+    font-weight="400"
+    letter-spacing="4"
+    fill="#FFFFFF"
+  >DIRECTORY</text>
+</svg>

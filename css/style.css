@@ -138,9 +138,7 @@ address { font-style: normal; }
   flex-shrink: 0;
 }
 
-.logo-icon { font-size: 24px; }
-.logo-text { font-size: 18px; font-weight: 500; }
-.logo-text strong { font-weight: 700; color: var(--color-primary); }
+.logo-img { height: 44px; width: 44px; border-radius: 6px; display: block; }
 
 .main-nav {
   display: flex;
