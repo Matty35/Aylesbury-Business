@@ -67,6 +67,8 @@ exports.handler = async (event) => {
   const REPO   = process.env.GITHUB_REPO   || 'matty35/aylesbury-business';
   const BRANCH = process.env.GITHUB_BRANCH || 'main';
 
+  console.log('ENV CHECK — TOKEN set:', !!TOKEN, '| REPO:', REPO, '| BRANCH:', BRANCH);
+
   if (!TOKEN) {
     console.error('GITHUB_TOKEN env var not set');
     return redirect('/add-listing.html?error=config');
