@@ -66,7 +66,11 @@
       <div class="form-card" style="margin-top:24px">
         <h2 id="form-title">Your Business Details</h2>
 
-        <form id="add-listing-form" onsubmit="handleFormSubmit(event)">
+        <form action="https://formsubmit.co/aylesburybusiness@gmail.com" method="POST" id="add-listing-form" onsubmit="handleFormSubmit(event)">
+          <input type="hidden" name="_subject" value="New Business Listing Submission – Aylesbury Business Directory" />
+          <input type="hidden" name="_next" value="https://aylesburybusiness.co.uk/add-listing.html?sent=1" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" style="display:none" />
 
           <!-- Always visible: Business Name -->
           <div class="form-group">
@@ -299,17 +303,27 @@
     }
 
     function handleFormSubmit(e) {
-      e.preventDefault();
       const tier = document.querySelector('input[name="tier"]:checked').value;
-      e.target.querySelectorAll('input,textarea,select,button').forEach(el => el.disabled = true);
 
       if (STRIPE_LINKS[tier]) {
+        // Paid tier: prevent default form POST and go to Stripe instead
+        e.preventDefault();
+        e.target.querySelectorAll('input,textarea,select,button').forEach(el => el.disabled = true);
         document.getElementById('payment-notice').innerHTML = '⏳ Redirecting you to secure payment…';
         setTimeout(() => { window.location.href = STRIPE_LINKS[tier]; }, 1200);
-      } else {
-        document.getElementById('form-success').classList.remove('hidden');
-        window.scrollTo({ top: document.getElementById('form-success').offsetTop - 100, behavior: 'smooth' });
       }
+      // Free tier: let the form POST naturally to FormSubmit → redirects to ?sent=1
+    }
+
+    // Show success message on return from FormSubmit
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      document.addEventListener('DOMContentLoaded', () => {
+        const el = document.getElementById('form-success');
+        if (el) {
+          el.classList.remove('hidden');
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
     }
   </script>
 </body>

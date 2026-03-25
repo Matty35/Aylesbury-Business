@@ -195,9 +195,11 @@
           </div>
         </div>
         <div class="grow-contact-form-wrap">
-          <form name="grow-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="grow-form" onsubmit="handleGrowSubmit(event)">
-            <input type="hidden" name="form-name" value="grow-contact" />
-            <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <form action="https://formsubmit.co/aylesburybusiness@gmail.com" method="POST" id="grow-form">
+            <input type="hidden" name="_subject" value="New Enquiry – Grow Online (MJL Online Services)" />
+            <input type="hidden" name="_next" value="https://aylesburybusiness.co.uk/grow.html?sent=1" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style="display:none" />
 
             <div class="form-row">
               <div class="form-group">
@@ -286,15 +288,15 @@
 
   <script src="js/main.js"></script>
   <script>
-    function handleGrowSubmit(e) {
-      // Let Netlify handle the POST natively; show success on return
-      // For local/non-Netlify preview, intercept and show message
-      if (!window.location.hostname.includes('netlify')) {
-        e.preventDefault();
-        document.getElementById('grow-success').classList.remove('hidden');
-        e.target.querySelectorAll('input,textarea,select,button').forEach(el => el.disabled = true);
-        window.scrollTo({ top: document.getElementById('grow-success').offsetTop - 100, behavior: 'smooth' });
-      }
+    // Show success banner if redirected back after FormSubmit
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      document.addEventListener('DOMContentLoaded', () => {
+        const el = document.getElementById('grow-success');
+        if (el) {
+          el.classList.remove('hidden');
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
     }
   </script>
 </body>
