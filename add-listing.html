@@ -67,7 +67,7 @@
       <div class="form-card" style="margin-top:24px">
         <h2 id="form-title">Your Business Details</h2>
 
-        <form action="/.netlify/functions/submit-listing" method="POST" id="add-listing-form" onsubmit="handleFormSubmit(event)">
+        <form action="/.netlify/functions/submit-listing" method="POST" id="add-listing-form">
           <input type="hidden" name="tier" id="tier-hidden" value="free" />
           <input type="text" name="_honey" style="display:none" />
 
@@ -181,6 +181,10 @@
 
           <div id="form-success" class="hidden" style="background:#d1fae5;border:1px solid #6ee7b7;border-radius:8px;padding:20px;margin-bottom:20px;color:#065f46;font-weight:600;">
             ✅ Your listing has been submitted and will appear on the site shortly.
+          </div>
+
+          <div id="form-error" class="hidden" style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:20px;margin-bottom:20px;color:#991b1b;font-weight:600;">
+            ⚠️ Something went wrong submitting your listing. Please try again or email us at aylesburybusiness@gmail.com
           </div>
 
           <div id="payment-notice" class="hidden" style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:16px;margin-bottom:20px;color:#1e40af;font-size:14px;">
@@ -302,16 +306,18 @@
       document.getElementById('logo-upload-prompt').classList.remove('hidden');
     }
 
-    // Show success message on return after free listing submission
-    if (new URLSearchParams(window.location.search).get('sent') === '1') {
-      document.addEventListener('DOMContentLoaded', () => {
+    // Show success or error message on return from function
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('sent') === '1') {
         const el = document.getElementById('form-success');
-        if (el) {
-          el.classList.remove('hidden');
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      });
-    }
+        if (el) { el.classList.remove('hidden'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      }
+      if (params.get('error')) {
+        const el = document.getElementById('form-error');
+        if (el) { el.classList.remove('hidden'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      }
+    });
   </script>
 </body>
 </html>

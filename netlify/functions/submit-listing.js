@@ -69,7 +69,7 @@ exports.handler = async (event) => {
 
   if (!TOKEN) {
     console.error('GITHUB_TOKEN env var not set');
-    return { statusCode: 500, body: 'Server configuration error' };
+    return redirect('/add-listing.html?error=config');
   }
 
   // Parse and validate
@@ -126,7 +126,7 @@ exports.handler = async (event) => {
 
     if (get.status !== 200) {
       console.error('Failed to read listings.json:', get.body);
-      return { statusCode: 500, body: 'Could not read listings file' };
+      return redirect('/add-listing.html?error=read');
     }
 
     // 2. Decode, append, re-encode
@@ -152,14 +152,14 @@ exports.handler = async (event) => {
 
     if (put.status !== 200 && put.status !== 201) {
       console.error('Failed to commit listing:', put.body);
-      return { statusCode: 500, body: 'Could not save listing' };
+      return redirect('/add-listing.html?error=save');
     }
 
     return redirect('/add-listing.html?sent=1');
 
   } catch (err) {
     console.error('Unexpected error:', err);
-    return { statusCode: 500, body: 'Unexpected error' };
+    return redirect('/add-listing.html?error=unexpected');
   }
 };
 
