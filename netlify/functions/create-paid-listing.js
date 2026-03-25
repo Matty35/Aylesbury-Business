@@ -86,7 +86,7 @@ exports.handler = async (event) => {
   }
 
   const TOKEN  = process.env.GITHUB_TOKEN;
-  const REPO   = process.env.GITHUB_REPO   || 'matty35/aylesbury-business';
+  const REPO   = process.env.GITHUB_REPO;
   const BRANCH = process.env.GITHUB_BRANCH || 'main';
   const STRIPE_LINKS = {
     standard: process.env.STRIPE_LINK_STANDARD,

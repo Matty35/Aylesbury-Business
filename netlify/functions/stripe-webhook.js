@@ -89,7 +89,7 @@ exports.handler = async (event) => {
 
   const WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
   const TOKEN          = process.env.GITHUB_TOKEN;
-  const REPO           = process.env.GITHUB_REPO   || 'matty35/aylesbury-business';
+  const REPO           = process.env.GITHUB_REPO;
   const BRANCH         = process.env.GITHUB_BRANCH || 'main';
 
   if (!WEBHOOK_SECRET || !TOKEN) {
