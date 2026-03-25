@@ -51,12 +51,14 @@
             <h4>Standard</h4>
             <p>Full profile with description, website, social links and tags.</p>
             <div class="tier-price">£9 / mo</div>
+            <span class="tier-payment-note">Payment via Stripe</span>
           </label>
-          <label class="tier-card">
+          <label class="tier-card tier-card--featured">
             <input type="radio" name="tier" value="featured" />
             <h4>Featured ⭐</h4>
             <p>Top of search results, highlighted listing, priority support.</p>
             <div class="tier-price">£19 / mo</div>
+            <span class="tier-payment-note">Payment via Stripe</span>
           </label>
         </div>
       </div>
@@ -135,7 +137,11 @@
             ✅ Thank you! Your submission has been received. We'll review it and be in touch shortly.
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg">Submit Your Listing</button>
+          <div id="payment-notice" class="hidden" style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:16px;margin-bottom:20px;color:#1e40af;font-size:14px;">
+            💳 You'll be redirected to Stripe to complete payment after submitting.
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">Submit Your Listing</button>
         </form>
       </div>
     </div>
@@ -174,19 +180,43 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Tier card selection highlight
+    const STRIPE_LINKS = {
+      standard: 'https://buy.stripe.com/28E7sN0k74bQev70ZXb7y00',
+      featured: 'https://buy.stripe.com/fZucN7aYLgYC5YB7olb7y01',
+    };
+
+    // Tier card selection highlight + show/hide payment notice
     document.querySelectorAll('.tier-card').forEach(card => {
       card.addEventListener('click', () => {
         document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
+        const tier = card.querySelector('input[name="tier"]').value;
+        const notice = document.getElementById('payment-notice');
+        const btn = document.getElementById('submit-btn');
+        if (tier === 'standard' || tier === 'featured') {
+          notice.classList.remove('hidden');
+          btn.textContent = 'Submit & Pay →';
+        } else {
+          notice.classList.add('hidden');
+          btn.textContent = 'Submit Your Listing';
+        }
       });
     });
 
     function handleFormSubmit(e) {
       e.preventDefault();
-      document.getElementById('form-success').classList.remove('hidden');
+      const tier = document.querySelector('input[name="tier"]:checked').value;
       e.target.querySelectorAll('input,textarea,select,button').forEach(el => el.disabled = true);
-      window.scrollTo({ top: document.getElementById('form-success').offsetTop - 100, behavior: 'smooth' });
+
+      if (STRIPE_LINKS[tier]) {
+        // Show brief message then redirect to Stripe
+        document.getElementById('payment-notice').innerHTML = '⏳ Redirecting you to secure payment…';
+        document.getElementById('payment-notice').classList.remove('hidden');
+        setTimeout(() => { window.location.href = STRIPE_LINKS[tier]; }, 1200);
+      } else {
+        document.getElementById('form-success').classList.remove('hidden');
+        window.scrollTo({ top: document.getElementById('form-success').offsetTop - 100, behavior: 'smooth' });
+      }
     }
   </script>
 </body>

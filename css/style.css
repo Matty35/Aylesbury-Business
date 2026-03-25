@@ -818,6 +818,8 @@ address { font-style: normal; }
 .tier-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
 .tier-card p { font-size: 12px; color: var(--color-text-muted); }
 .tier-price { font-size: 16px; font-weight: 700; color: var(--color-primary); margin-top: 6px; }
+.tier-payment-note { font-size: 11px; color: var(--color-text-muted); margin-top: 4px; display: block; }
+.tier-card--featured .tier-price { color: var(--color-accent-dark); }
 
 /* ============================================================
    About / Contact pages
