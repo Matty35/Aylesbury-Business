@@ -6,10 +6,9 @@
 
 const https = require('https');
 
-const STRIPE_LINKS = {
-  standard: 'https://buy.stripe.com/28E7sN0k74bQev70ZXb7y00',
-  featured:  'https://buy.stripe.com/fZucN7aYLgYC5YB7olb7y01',
-};
+// Stripe Payment Links are stored in Netlify environment variables:
+// STRIPE_LINK_STANDARD and STRIPE_LINK_FEATURED
+// Set these in Netlify dashboard → Site configuration → Environment variables
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -89,6 +88,10 @@ exports.handler = async (event) => {
   const TOKEN  = process.env.GITHUB_TOKEN;
   const REPO   = process.env.GITHUB_REPO   || 'matty35/aylesbury-business';
   const BRANCH = process.env.GITHUB_BRANCH || 'main';
+  const STRIPE_LINKS = {
+    standard: process.env.STRIPE_LINK_STANDARD,
+    featured:  process.env.STRIPE_LINK_FEATURED,
+  };
 
   if (!TOKEN) {
     console.error('GITHUB_TOKEN not set');
