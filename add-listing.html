@@ -111,6 +111,22 @@
             <input type="url" id="biz-website" class="form-input" placeholder="https://www.yourbusiness.co.uk" />
           </div>
 
+          <div class="form-group logo-upload-group hidden" id="logo-upload-group">
+            <label for="biz-logo">Business Logo</label>
+            <div class="logo-upload-area" id="logo-upload-area">
+              <input type="file" id="biz-logo" accept="image/png,image/jpeg,image/svg+xml,image/webp" class="logo-file-input" />
+              <div class="logo-upload-prompt" id="logo-upload-prompt">
+                <span class="logo-upload-icon">🖼️</span>
+                <span class="logo-upload-text">Click to upload your logo</span>
+                <span class="logo-upload-hint">PNG, JPG, SVG or WebP · Max 2MB · Recommended 400×400px</span>
+              </div>
+              <div class="logo-preview hidden" id="logo-preview">
+                <img id="logo-preview-img" src="" alt="Logo preview" />
+                <button type="button" class="logo-remove-btn" onclick="removeLogo()">✕ Remove</button>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="biz-street">Street Address</label>
             <input type="text" id="biz-street" class="form-input" placeholder="14 Market Square" />
@@ -185,7 +201,7 @@
       featured: 'https://buy.stripe.com/fZucN7aYLgYC5YB7olb7y01',
     };
 
-    // Tier card selection highlight + show/hide payment notice
+    // Tier card selection highlight + show/hide payment notice + logo upload
     document.querySelectorAll('.tier-card').forEach(card => {
       card.addEventListener('click', () => {
         document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
@@ -193,15 +209,50 @@
         const tier = card.querySelector('input[name="tier"]').value;
         const notice = document.getElementById('payment-notice');
         const btn = document.getElementById('submit-btn');
+        const logoGroup = document.getElementById('logo-upload-group');
         if (tier === 'standard' || tier === 'featured') {
           notice.classList.remove('hidden');
           btn.textContent = 'Submit & Pay →';
+          logoGroup.classList.remove('hidden');
         } else {
           notice.classList.add('hidden');
           btn.textContent = 'Submit Your Listing';
+          logoGroup.classList.add('hidden');
         }
       });
     });
+
+    // Logo upload preview
+    document.getElementById('biz-logo').addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+      if (file.size > 2 * 1024 * 1024) {
+        alert('File is too large. Please upload an image under 2MB.');
+        this.value = '';
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = e => {
+        document.getElementById('logo-preview-img').src = e.target.result;
+        document.getElementById('logo-upload-prompt').classList.add('hidden');
+        document.getElementById('logo-preview').classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Click on upload area triggers file input
+    document.getElementById('logo-upload-area').addEventListener('click', function (e) {
+      if (e.target.closest('.logo-remove-btn')) return;
+      if (e.target === document.getElementById('biz-logo')) return;
+      document.getElementById('biz-logo').click();
+    });
+
+    function removeLogo() {
+      document.getElementById('biz-logo').value = '';
+      document.getElementById('logo-preview-img').src = '';
+      document.getElementById('logo-preview').classList.add('hidden');
+      document.getElementById('logo-upload-prompt').classList.remove('hidden');
+    }
 
     function handleFormSubmit(e) {
       e.preventDefault();

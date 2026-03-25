@@ -817,6 +817,27 @@ address { font-style: normal; }
 .tier-card:has(input:checked), .tier-card.selected { border-color: var(--color-primary); background: var(--color-primary-light); }
 .tier-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
 .tier-card p { font-size: 12px; color: var(--color-text-muted); }
+/* Logo upload */
+.logo-upload-area {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  position: relative;
+}
+.logo-upload-area:hover { border-color: var(--color-primary); background: var(--color-primary-light); }
+.logo-file-input { display: none; }
+.logo-upload-prompt { display: flex; flex-direction: column; align-items: center; gap: 6px; pointer-events: none; }
+.logo-upload-icon { font-size: 32px; }
+.logo-upload-text { font-size: 15px; font-weight: 600; color: var(--color-primary); }
+.logo-upload-hint { font-size: 12px; color: var(--color-text-muted); }
+.logo-preview { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.logo-preview img { max-height: 120px; max-width: 240px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); object-fit: contain; }
+.logo-remove-btn { font-size: 13px; color: #dc2626; background: none; border: 1px solid #dc2626; border-radius: 99px; padding: 4px 12px; cursor: pointer; }
+.logo-remove-btn:hover { background: #fee2e2; }
+
 .tier-price { font-size: 16px; font-weight: 700; color: var(--color-primary); margin-top: 6px; }
 .tier-payment-note { font-size: 11px; color: var(--color-text-muted); margin-top: 4px; display: block; }
 .tier-card--featured .tier-price { color: var(--color-accent-dark); }
