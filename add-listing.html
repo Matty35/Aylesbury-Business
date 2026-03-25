@@ -64,83 +64,110 @@
       </div>
 
       <div class="form-card" style="margin-top:24px">
-        <h2>Your Business Details</h2>
+        <h2 id="form-title">Your Business Details</h2>
+
         <form id="add-listing-form" onsubmit="handleFormSubmit(event)">
+
+          <!-- Always visible: Business Name -->
           <div class="form-group">
             <label for="biz-name">Business Name *</label>
             <input type="text" id="biz-name" class="form-input" placeholder="e.g. Aylesbury Plumbing Solutions" required />
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="biz-category">Category *</label>
-              <select id="biz-category" class="form-select" required>
-                <option value="">Select a category…</option>
-                <option value="trades">Trades &amp; Home</option>
-                <option value="food-drink">Food &amp; Drink</option>
-                <option value="health-beauty">Health &amp; Beauty</option>
-                <option value="automotive">Automotive</option>
-                <option value="professional-services">Professional Services</option>
-                <option value="retail">Retail &amp; Shopping</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="biz-subcategory">Subcategory</label>
-              <input type="text" id="biz-subcategory" class="form-input" placeholder="e.g. Plumbing &amp; Heating" />
-            </div>
-          </div>
-
+          <!-- Always visible: Address -->
           <div class="form-group">
-            <label for="biz-desc">Description</label>
-            <textarea id="biz-desc" class="form-textarea" placeholder="Tell customers about your business, services, and what makes you stand out…"></textarea>
+            <label for="biz-street">Street Address *</label>
+            <input type="text" id="biz-street" class="form-input" placeholder="14 Market Square" required />
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="biz-phone">Phone Number</label>
-              <input type="tel" id="biz-phone" class="form-input" placeholder="01296 123456" />
+              <label for="biz-town">Town *</label>
+              <input type="text" id="biz-town" class="form-input" placeholder="Aylesbury" value="Aylesbury" required />
             </div>
             <div class="form-group">
-              <label for="biz-email">Email Address</label>
-              <input type="email" id="biz-email" class="form-input" placeholder="info@yourbusiness.co.uk" />
+              <label for="biz-postcode">Postcode *</label>
+              <input type="text" id="biz-postcode" class="form-input" placeholder="HP20 2JA" required />
             </div>
           </div>
 
+          <!-- Always visible: Phone -->
           <div class="form-group">
-            <label for="biz-website">Website URL</label>
-            <input type="url" id="biz-website" class="form-input" placeholder="https://www.yourbusiness.co.uk" />
+            <label for="biz-phone">Phone Number *</label>
+            <input type="tel" id="biz-phone" class="form-input" placeholder="01296 123456" required />
           </div>
 
-          <div class="form-group logo-upload-group hidden" id="logo-upload-group">
-            <label for="biz-logo">Business Logo</label>
-            <div class="logo-upload-area" id="logo-upload-area">
-              <input type="file" id="biz-logo" accept="image/png,image/jpeg,image/svg+xml,image/webp" class="logo-file-input" />
-              <div class="logo-upload-prompt" id="logo-upload-prompt">
-                <span class="logo-upload-icon">🖼️</span>
-                <span class="logo-upload-text">Click to upload your logo</span>
-                <span class="logo-upload-hint">PNG, JPG, SVG or WebP · Max 2MB · Recommended 400×400px</span>
-              </div>
-              <div class="logo-preview hidden" id="logo-preview">
-                <img id="logo-preview-img" src="" alt="Logo preview" />
-                <button type="button" class="logo-remove-btn" onclick="removeLogo()">✕ Remove</button>
+          <!-- Paid tiers only -->
+          <div class="paid-fields hidden" id="paid-fields">
+
+            <div class="form-group">
+              <label for="biz-logo">Business Logo</label>
+              <div class="logo-upload-area" id="logo-upload-area">
+                <input type="file" id="biz-logo" accept="image/png,image/jpeg,image/svg+xml,image/webp" class="logo-file-input" />
+                <div class="logo-upload-prompt" id="logo-upload-prompt">
+                  <span class="logo-upload-icon">🖼️</span>
+                  <span class="logo-upload-text">Click to upload your logo</span>
+                  <span class="logo-upload-hint">PNG, JPG, SVG or WebP · Max 2MB · Recommended 400×400px</span>
+                </div>
+                <div class="logo-preview hidden" id="logo-preview">
+                  <img id="logo-preview-img" src="" alt="Logo preview" />
+                  <button type="button" class="logo-remove-btn" onclick="removeLogo()">✕ Remove</button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="biz-street">Street Address</label>
-            <input type="text" id="biz-street" class="form-input" placeholder="14 Market Square" />
-          </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="biz-category">Category *</label>
+                <select id="biz-category" class="form-select">
+                  <option value="">Select a category…</option>
+                  <option value="trades">Trades &amp; Home</option>
+                  <option value="food-drink">Food &amp; Drink</option>
+                  <option value="health-beauty">Health &amp; Beauty</option>
+                  <option value="automotive">Automotive</option>
+                  <option value="professional-services">Professional Services</option>
+                  <option value="retail">Retail &amp; Shopping</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="biz-subcategory">Subcategory</label>
+                <input type="text" id="biz-subcategory" class="form-input" placeholder="e.g. Plumbing &amp; Heating" />
+              </div>
+            </div>
 
-          <div class="form-row">
             <div class="form-group">
-              <label for="biz-postcode">Postcode</label>
-              <input type="text" id="biz-postcode" class="form-input" placeholder="HP20 2JA" />
+              <label for="biz-desc">Description *</label>
+              <textarea id="biz-desc" class="form-textarea" placeholder="Tell customers about your business, services, and what makes you stand out…"></textarea>
             </div>
-            <div class="form-group">
-              <label for="biz-contact-name">Your Name *</label>
-              <input type="text" id="biz-contact-name" class="form-input" placeholder="Contact person name" required />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="biz-email">Business Email</label>
+                <input type="email" id="biz-email" class="form-input" placeholder="info@yourbusiness.co.uk" />
+              </div>
+              <div class="form-group">
+                <label for="biz-website">Website URL</label>
+                <input type="url" id="biz-website" class="form-input" placeholder="https://www.yourbusiness.co.uk" />
+              </div>
             </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="biz-facebook">Facebook URL</label>
+                <input type="url" id="biz-facebook" class="form-input" placeholder="https://facebook.com/yourbusiness" />
+              </div>
+              <div class="form-group">
+                <label for="biz-instagram">Instagram URL</label>
+                <input type="url" id="biz-instagram" class="form-input" placeholder="https://instagram.com/yourbusiness" />
+              </div>
+            </div>
+
+          </div><!-- /paid-fields -->
+
+          <!-- Always visible: Your contact details -->
+          <div class="form-group" style="margin-top:8px">
+            <label for="biz-contact-name">Your Name *</label>
+            <input type="text" id="biz-contact-name" class="form-input" placeholder="Contact person name" required />
           </div>
 
           <div class="form-group">
@@ -201,26 +228,42 @@
       featured: 'https://buy.stripe.com/fZucN7aYLgYC5YB7olb7y01',
     };
 
-    // Tier card selection highlight + show/hide payment notice + logo upload
+    function applyTier(tier) {
+      const paidFields = document.getElementById('paid-fields');
+      const notice     = document.getElementById('payment-notice');
+      const btn        = document.getElementById('submit-btn');
+      const category   = document.getElementById('biz-category');
+      const desc       = document.getElementById('biz-desc');
+
+      if (tier === 'standard' || tier === 'featured') {
+        paidFields.classList.remove('hidden');
+        notice.classList.remove('hidden');
+        btn.textContent = 'Submit & Pay →';
+        // Make paid-only required fields active
+        category.required = true;
+        desc.required = true;
+      } else {
+        paidFields.classList.add('hidden');
+        notice.classList.add('hidden');
+        btn.textContent = 'Submit Your Listing';
+        // Remove required from hidden fields so free form submits cleanly
+        category.required = false;
+        desc.required = false;
+      }
+    }
+
+    // Tier card click handler
     document.querySelectorAll('.tier-card').forEach(card => {
       card.addEventListener('click', () => {
         document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
         const tier = card.querySelector('input[name="tier"]').value;
-        const notice = document.getElementById('payment-notice');
-        const btn = document.getElementById('submit-btn');
-        const logoGroup = document.getElementById('logo-upload-group');
-        if (tier === 'standard' || tier === 'featured') {
-          notice.classList.remove('hidden');
-          btn.textContent = 'Submit & Pay →';
-          logoGroup.classList.remove('hidden');
-        } else {
-          notice.classList.add('hidden');
-          btn.textContent = 'Submit Your Listing';
-          logoGroup.classList.add('hidden');
-        }
+        applyTier(tier);
       });
     });
+
+    // Run on page load to match the default checked tier (Free)
+    applyTier('free');
 
     // Logo upload preview
     document.getElementById('biz-logo').addEventListener('change', function () {
@@ -240,7 +283,7 @@
       reader.readAsDataURL(file);
     });
 
-    // Click on upload area triggers file input
+    // Click anywhere on upload area to open file picker
     document.getElementById('logo-upload-area').addEventListener('click', function (e) {
       if (e.target.closest('.logo-remove-btn')) return;
       if (e.target === document.getElementById('biz-logo')) return;
@@ -260,9 +303,7 @@
       e.target.querySelectorAll('input,textarea,select,button').forEach(el => el.disabled = true);
 
       if (STRIPE_LINKS[tier]) {
-        // Show brief message then redirect to Stripe
         document.getElementById('payment-notice').innerHTML = '⏳ Redirecting you to secure payment…';
-        document.getElementById('payment-notice').classList.remove('hidden');
         setTimeout(() => { window.location.href = STRIPE_LINKS[tier]; }, 1200);
       } else {
         document.getElementById('form-success').classList.remove('hidden');
