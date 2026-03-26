@@ -55,6 +55,43 @@
       "instagram": "https://www.instagram.com/ksroofingspecialistsltd"
     },
     "dateAdded": "2026-03-26",
-    "tags": ["roofing", "roof repairs", "flat roofing", "guttering", "Aylesbury", "Buckinghamshire"]
+    "tags": [
+      "roofing",
+      "roof repairs",
+      "flat roofing",
+      "guttering",
+      "Aylesbury",
+      "Buckinghamshire"
+    ]
+  },
+  {
+    "id": "mn7poewqkyw44",
+    "name": "O’So Gardens",
+    "slug": "oso-gardens",
+    "category": "",
+    "subcategory": "",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "O’So Gardens based in Aylesbury.",
+    "phone": "07526 771479",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "Meadowcroft",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "Hp199hh"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-03-26",
+    "tags": [],
+    "_contactName": "Joe O’sullivan",
+    "_contactEmail": "enquiries@osogardens.com"
   }
 ]
