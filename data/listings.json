@@ -28,5 +28,33 @@
     "tags": [],
     "_contactName": "Matthew Logan",
     "_contactEmail": "kerbsideinfo@gmail.com"
+  },
+  {
+    "id": "ks-roofing-001",
+    "name": "KS Roofing Specialists Ltd",
+    "slug": "ks-roofing-specialists-ltd",
+    "category": "trades",
+    "subcategory": "Roofing",
+    "tier": "featured",
+    "featured": true,
+    "description": "K&S Roofing Specialists LTD is a trusted roofing contractor serving Aylesbury, Buckinghamshire and the surrounding area within a 30-mile radius. We cover postcode areas including HP, OX, MK and LU — reaching towns such as Aylesbury, Thame, Bicester, Buckingham, Milton Keynes, Leighton Buzzard, Hemel Hempstead, Tring, Wendover, Princes Risborough, Haddenham, Chinnor, Banbury and Oxford.",
+    "shortDescription": "Trusted roofing specialists serving Aylesbury, Buckinghamshire and surrounding areas within a 30-mile radius.",
+    "phone": "07572 427243",
+    "email": "Harwood28@yahoo.com",
+    "website": "https://www.ksroofing.uk",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": "https://www.instagram.com/ksroofingspecialistsltd"
+    },
+    "dateAdded": "2026-03-26",
+    "tags": ["roofing", "roof repairs", "flat roofing", "guttering", "Aylesbury", "Buckinghamshire"]
   }
 ]
