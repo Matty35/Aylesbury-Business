@@ -114,5 +114,33 @@
     },
     "dateAdded": "2026-03-27",
     "tags": ["barber", "haircut", "skin fade", "beard trim", "mens grooming", "kids cuts", "face mask", "Aylesbury"]
+  },
+  {
+    "id": "shotanmun-001",
+    "name": "Shotanmun",
+    "slug": "shotanmun",
+    "category": "professional-services",
+    "subcategory": "Photography & Videography",
+    "tier": "featured",
+    "featured": true,
+    "description": "Shotanmun works with SMEs to promote their businesses through high quality visual marketing. We create professional portraits and branding imagery that help service providers, clinics and businesses attract clients, build trust, and stand out. Based in Aylesbury, Buckinghamshire — available for on-location shoots across the surrounding areas.",
+    "shortDescription": "Professional photography, branding imagery and videography for SMEs, clinics and service providers in Aylesbury and beyond.",
+    "phone": "07487 408160",
+    "email": "hello@shotanmun.com",
+    "website": "https://www.shotanmun.com",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": "https://www.instagram.com/shotanmun"
+    },
+    "dateAdded": "2026-03-27",
+    "tags": ["photography", "videography", "branding", "portraits", "visual marketing", "SME", "Aylesbury", "Buckinghamshire"]
   }
 ]
