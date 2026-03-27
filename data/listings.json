@@ -198,5 +198,33 @@
     },
     "dateAdded": "2026-03-27",
     "tags": ["photography", "newborn photography", "baby photography", "family photography", "home studio", "Ivinghoe", "Buckinghamshire", "Hertfordshire", "Bedfordshire"]
+  },
+  {
+    "id": "into-netball-001",
+    "name": "In to Netball",
+    "slug": "into-netball",
+    "category": "sports-leisure",
+    "subcategory": "Netball",
+    "tier": "featured",
+    "featured": true,
+    "description": "In to Netball sessions are fun and social netball sessions aimed at adults from 16 and above — no previous netball experience necessary! Sessions are coach-led and include a warm up and match play with some coaching along the way. Fully flexible with no commitment required, so you can just book on to a week you'd like to join and come along. Based at The Kingsbrook School, Aylesbury.",
+    "shortDescription": "Fun, social coach-led netball sessions for adults 16+ at The Kingsbrook School, Aylesbury. No experience needed — just turn up and play!",
+    "phone": "07916 672458",
+    "email": "in2netball@gmail.com",
+    "website": "https://bookwhen.com/intonetball",
+    "address": {
+      "street": "The Kingsbrook School",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP22 7BR"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://www.facebook.com/share/18JFp54k2p/",
+      "instagram": "https://www.instagram.com/in.to.netball"
+    },
+    "dateAdded": "2026-03-27",
+    "tags": ["netball", "sports", "social sport", "adult classes", "ladies netball", "Aylesbury", "Kingsbrook", "Buckinghamshire"]
   }
 ]

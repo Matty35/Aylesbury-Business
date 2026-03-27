@@ -8,6 +8,7 @@ const CATEGORY_LABELS = {
   'professional-services': 'Professional Services',
   'retail': 'Retail & Shopping',
   'creative-media': 'Creative & Media',
+  'sports-leisure': 'Sports & Leisure',
 };
 
 const CATEGORY_ICONS = {
@@ -18,6 +19,7 @@ const CATEGORY_ICONS = {
   'professional-services': '💼',
   'retail': '🛍️',
   'creative-media': '📸',
+  'sports-leisure': '⚽',
 };
 
 function getCategoryLabel(cat) {
