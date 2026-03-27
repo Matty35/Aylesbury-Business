@@ -142,5 +142,33 @@
     },
     "dateAdded": "2026-03-27",
     "tags": ["photography", "videography", "branding", "portraits", "visual marketing", "SME", "Aylesbury", "Buckinghamshire"]
+  },
+  {
+    "id": "jfs-exteriors-001",
+    "name": "JFS Exteriors",
+    "slug": "jfs-exteriors",
+    "category": "trades",
+    "subcategory": "Exterior Cleaning",
+    "tier": "featured",
+    "featured": true,
+    "description": "JFS Exteriors provides professional exterior cleaning services across Buckinghamshire, Oxfordshire, Hertfordshire and Bedfordshire. We specialise in cleaning roofs, patios, driveways, brickwork, decking, block paving, gutters, fascias, soffits, windows, AstroTurf and outdoor furniture — restoring the look of your property inside and out.",
+    "shortDescription": "Professional exterior cleaning specialists covering Bucks, Oxfordshire, Hertfordshire and Bedfordshire — driveways, roofs, patios, gutters and more.",
+    "phone": "07763 901955",
+    "email": "",
+    "website": "https://www.jfsexteriors.com",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://www.facebook.com/JFSExteriors",
+      "instagram": "https://www.instagram.com/jfsexteriors"
+    },
+    "dateAdded": "2026-03-27",
+    "tags": ["exterior cleaning", "driveway cleaning", "roof cleaning", "patio cleaning", "gutter cleaning", "pressure washing", "window cleaning", "Buckinghamshire", "Oxfordshire"]
   }
 ]
