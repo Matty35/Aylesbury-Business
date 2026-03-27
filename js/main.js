@@ -7,6 +7,7 @@ const CATEGORY_LABELS = {
   'automotive': 'Automotive',
   'professional-services': 'Professional Services',
   'retail': 'Retail & Shopping',
+  'creative-media': 'Creative & Media',
 };
 
 const CATEGORY_ICONS = {
@@ -16,6 +17,7 @@ const CATEGORY_ICONS = {
   'automotive': '🚗',
   'professional-services': '💼',
   'retail': '🛍️',
+  'creative-media': '📸',
 };
 
 function getCategoryLabel(cat) {
