@@ -55,25 +55,18 @@
       "instagram": "https://www.instagram.com/ksroofingspecialistsltd"
     },
     "dateAdded": "2026-03-26",
-    "tags": [
-      "roofing",
-      "roof repairs",
-      "flat roofing",
-      "guttering",
-      "Aylesbury",
-      "Buckinghamshire"
-    ]
+    "tags": ["roofing", "roof repairs", "flat roofing", "guttering", "Aylesbury", "Buckinghamshire"]
   },
   {
     "id": "mn7poewqkyw44",
-    "name": "O’So Gardens",
+    "name": "O'So Gardens",
     "slug": "oso-gardens",
     "category": "",
     "subcategory": "",
     "tier": "free",
     "featured": false,
     "description": "",
-    "shortDescription": "O’So Gardens based in Aylesbury.",
+    "shortDescription": "O'So Gardens based in Aylesbury.",
     "phone": "07526 771479",
     "email": "",
     "website": "",
@@ -81,7 +74,7 @@
       "street": "Meadowcroft",
       "town": "Aylesbury",
       "county": "Buckinghamshire",
-      "postcode": "Hp199hh"
+      "postcode": "HP199HH"
     },
     "logo": null,
     "photos": [],
@@ -91,7 +84,35 @@
     },
     "dateAdded": "2026-03-26",
     "tags": [],
-    "_contactName": "Joe O’sullivan",
+    "_contactName": "Joe O'sullivan",
     "_contactEmail": "enquiries@osogardens.com"
+  },
+  {
+    "id": "davs-barbering-001",
+    "name": "DAV'S Men's Barbering",
+    "slug": "davs-mens-barbering",
+    "category": "health-beauty",
+    "subcategory": "Barber",
+    "tier": "featured",
+    "featured": true,
+    "description": "DAV'S Men's Barbering is Aylesbury's premier men's grooming destination. We offer a full range of men's services including haircuts, kids cuts, senior cuts, skin fades, beard trims and face masks. Whether you're after a classic cut or a sharp fade, DAV's has you covered.",
+    "shortDescription": "Aylesbury's premier men's barber offering haircuts, skin fades, beard trims, kids cuts and face masks.",
+    "phone": "07935 387567",
+    "email": "davscuts@hotmail.com",
+    "website": "https://dav.thebarber.co.uk",
+    "address": {
+      "street": "9 Walton Road",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP20 1XR"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://www.facebook.com/dav.thebarber",
+      "instagram": "https://www.instagram.com/dav.thebarber"
+    },
+    "dateAdded": "2026-03-27",
+    "tags": ["barber", "haircut", "skin fade", "beard trim", "mens grooming", "kids cuts", "face mask", "Aylesbury"]
   }
 ]
