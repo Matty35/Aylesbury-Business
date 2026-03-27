@@ -170,5 +170,33 @@
     },
     "dateAdded": "2026-03-27",
     "tags": ["exterior cleaning", "driveway cleaning", "roof cleaning", "patio cleaning", "gutter cleaning", "pressure washing", "window cleaning", "Buckinghamshire", "Oxfordshire"]
+  },
+  {
+    "id": "florence-joan-photography-001",
+    "name": "Florence Joan Photography",
+    "slug": "florence-joan-photography",
+    "category": "creative-media",
+    "subcategory": "Photography",
+    "tier": "featured",
+    "featured": true,
+    "description": "Florence Joan Photography specialises in newborn, baby and family photography, captured beautifully in a cosy home studio. Based in Ivinghoe, Buckinghamshire, Kate creates warm, timeless images that families will treasure forever. Serving Buckinghamshire, Hertfordshire and Bedfordshire.",
+    "shortDescription": "Newborn, baby and family photography in a cosy home studio. Based in Ivinghoe, covering Bucks, Herts and Beds.",
+    "phone": "07854 304391",
+    "email": "Kate@florencejoanphotography.co.uk",
+    "website": "https://www.florencejoanphotography.co.uk",
+    "address": {
+      "street": "Great Gap",
+      "town": "Ivinghoe",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": "https://www.instagram.com/florencejoanphotography"
+    },
+    "dateAdded": "2026-03-27",
+    "tags": ["photography", "newborn photography", "baby photography", "family photography", "home studio", "Ivinghoe", "Buckinghamshire", "Hertfordshire", "Bedfordshire"]
   }
 ]
