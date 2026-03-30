@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Offers &amp; Promotions in Aylesbury | Aylesbury Business Directory</title>
+  <meta name="description" content="Browse exclusive offers and promotions from trusted local businesses in Aylesbury and Buckinghamshire. New deals added regularly." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="Aylesbury Business Directory" class="logo-img" />
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="businesses.html" class="nav-link">All Businesses</a>
+        <a href="offers.html" class="nav-link active">Offers</a>
+        <a href="grow.html" class="nav-link">Grow Online</a>
+        <a href="add-listing.html" class="btn btn-primary btn-sm">Add Your Business</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Offers Hero -->
+  <section class="offers-hero">
+    <div class="container">
+      <h1>Latest Offers &amp; Promotions from Aylesbury Businesses</h1>
+      <p>Exclusive deals from trusted local businesses — updated regularly.</p>
+      <div class="offers-filter-bar" id="offers-filter-bar">
+        <button class="offers-filter-btn active" data-cat="">All Offers</button>
+        <button class="offers-filter-btn" data-cat="trades">🔧 Trades &amp; Home</button>
+        <button class="offers-filter-btn" data-cat="food-drink">🍽️ Food &amp; Drink</button>
+        <button class="offers-filter-btn" data-cat="health-beauty">💆 Health &amp; Beauty</button>
+        <button class="offers-filter-btn" data-cat="automotive">🚗 Automotive</button>
+        <button class="offers-filter-btn" data-cat="professional-services">💼 Professional Services</button>
+        <button class="offers-filter-btn" data-cat="retail">🛍️ Retail &amp; Shopping</button>
+        <button class="offers-filter-btn" data-cat="creative-media">📸 Creative &amp; Media</button>
+        <button class="offers-filter-btn" data-cat="sports-leisure">⚽ Sports &amp; Leisure</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers Grid -->
+  <section class="offers-main">
+    <div class="container">
+      <div class="offer-grid" id="offers-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+      <p class="no-results hidden" id="no-offers">No offers found for this category yet.</p>
+
+      <!-- Business CTA -->
+      <div class="offers-cta-box">
+        <h3>Got an offer to promote?</h3>
+        <p>Upgrade to a Featured listing and we'll showcase your offer here — and in our newsletter to hundreds of local subscribers.</p>
+        <a href="add-listing.html" class="btn btn-accent btn-lg">Upgrade to Featured</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Band -->
+  <section class="newsletter-band">
+    <div class="container newsletter-inner">
+      <div class="newsletter-copy">
+        <h2>Stay in the Loop with Aylesbury Business</h2>
+        <p>Get exclusive local offers, business spotlights, new listings and promotions delivered straight to your inbox.</p>
+      </div>
+      <div>
+        <form class="newsletter-form" name="newsletter-signup" data-netlify="true" onsubmit="handleNewsletter(event, this)">
+          <input type="hidden" name="form-name" value="newsletter-signup" />
+          <div class="nl-row">
+            <input type="text" name="first-name" placeholder="First Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+          </div>
+          <button type="submit" class="newsletter-submit">Join the Newsletter</button>
+        </form>
+        <div class="newsletter-thanks" id="nl-thanks-offers">You're in! Welcome to the Aylesbury Business community 🎉</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.svg" alt="Aylesbury Business Directory" class="logo-img" />
+        </a>
+        <p>The local business directory for Aylesbury and Buckinghamshire.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Directory</h4>
+        <ul>
+          <li><a href="businesses.html">All Businesses</a></li>
+          <li><a href="businesses.html?category=trades">Trades &amp; Home</a></li>
+          <li><a href="businesses.html?category=food-drink">Food &amp; Drink</a></li>
+          <li><a href="businesses.html?category=health-beauty">Health &amp; Beauty</a></li>
+          <li><a href="businesses.html?category=automotive">Automotive</a></li>
+          <li><a href="businesses.html?category=professional-services">Professional Services</a></li>
+          <li><a href="businesses.html?category=retail">Retail &amp; Shopping</a></li>
+          <li><a href="businesses.html?category=creative-media">Creative &amp; Media</a></li>
+          <li><a href="businesses.html?category=sports-leisure">Sports &amp; Leisure</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>More</h4>
+        <ul>
+          <li><a href="add-listing.html">Add Your Business</a></li>
+          <li><a href="offers.html">Offers &amp; Promotions</a></li>
+          <li><a href="grow.html">Grow Online</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <form class="footer-nl-form" name="newsletter-signup" onsubmit="handleFooterNl(event, this)">
+          <input type="hidden" name="form-name" value="newsletter-signup" />
+          <input type="text" name="first-name" placeholder="First Name" />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <button type="submit" class="footer-nl-submit">Join the Newsletter</button>
+        </form>
+        <div class="footer-nl-thanks" id="footer-nl-thanks-offers">You're in! 🎉</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 AylesburyBusiness. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let allOffers = [];
+
+    async function loadOffers() {
+      const res = await fetch('data/offers.json');
+      return res.json();
+    }
+
+    function formatExpiry(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    function renderOfferCard(o) {
+      const catLabel = getCategoryLabel(o.category);
+      const catIcon  = getCategoryIcon ? getCategoryIcon(o.category) : '';
+      const logo = o.logo
+        ? `<img src="${o.logo}" alt="${o.businessName}" />`
+        : (catIcon || '🏢');
+      const badge = o.featured ? '<span class="offer-hot-badge">Hot Deal 🔥</span>' : '';
+      return `
+        <div class="offer-card">
+          ${badge}
+          <div class="offer-card-header">
+            <div class="offer-logo">${logo}</div>
+            <div>
+              <div class="offer-biz-name">${o.businessName}</div>
+              <div class="offer-biz-cat">${catLabel}</div>
+            </div>
+          </div>
+          <div class="offer-card-body">
+            <div class="offer-title">${o.offerTitle}</div>
+            <p class="offer-desc">${o.offerDescription}</p>
+            <p class="offer-expiry">Offer ends <strong>${formatExpiry(o.expiryDate)}</strong></p>
+            <a href="business.html?slug=${o.slug}" class="btn btn-primary btn-sm">View Offer</a>
+          </div>
+        </div>`;
+    }
+
+    function renderOffers(cat) {
+      const grid = document.getElementById('offers-grid');
+      const none = document.getElementById('no-offers');
+      const filtered = cat ? allOffers.filter(o => o.category === cat) : allOffers;
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        none.classList.remove('hidden');
+      } else {
+        none.classList.add('hidden');
+        grid.innerHTML = filtered.map(renderOfferCard).join('');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadOffers().then(offers => {
+        allOffers = offers;
+        renderOffers('');
+      });
+
+      document.getElementById('offers-filter-bar').addEventListener('click', e => {
+        const btn = e.target.closest('.offers-filter-btn');
+        if (!btn) return;
+        document.querySelectorAll('.offers-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderOffers(btn.dataset.cat);
+      });
+    });
+
+    function handleNewsletter(e, form) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+        .then(() => {
+          form.style.display = 'none';
+          document.getElementById('nl-thanks-offers').classList.add('visible');
+        }).catch(() => form.submit());
+    }
+
+    function handleFooterNl(e, form) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+        .then(() => {
+          form.style.display = 'none';
+          document.getElementById('footer-nl-thanks-offers').classList.add('visible');
+        }).catch(() => form.submit());
+    }
+  </script>
+</body>
+</html>

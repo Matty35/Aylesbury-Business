@@ -21,6 +21,7 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="businesses.html" class="nav-link active">All Businesses</a>
         <a href="index.html#categories" class="nav-link">Categories</a>
+        <a href="offers.html" class="nav-link">Offers</a>
         <a href="grow.html" class="nav-link">Grow Online</a>
         <a href="add-listing.html" class="btn btn-primary btn-sm">Add Your Business</a>
       </nav>
@@ -35,6 +36,50 @@
       <p id="page-subtitle">Browse local businesses across Aylesbury and Buckinghamshire</p>
     </div>
   </section>
+
+  <!-- Lead Capture (shown when category filter active) -->
+  <section class="lead-capture-section" id="lead-capture-section">
+    <div class="container lead-capture-inner">
+      <h2 id="lc-headline">Looking for a local business in Aylesbury?</h2>
+      <p class="lc-sub">Tell us what you need and we'll connect you with trusted local businesses — free of charge.</p>
+      <form class="lead-capture-form" id="lead-capture-form" onsubmit="handleLeadCapture(event)">
+        <input type="hidden" name="form-name" id="lc-form-name" value="lead-capture" />
+        <input type="hidden" name="category" id="lc-category-field" value="" />
+        <div class="lc-row">
+          <input type="text" name="full-name" placeholder="Full Name" required />
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+        </div>
+        <div class="lc-row">
+          <input type="email" name="email" placeholder="Email Address" required />
+          <input type="text" name="postcode" placeholder="Postcode" required />
+        </div>
+        <textarea name="service-needed" placeholder="Type of job / service needed…" required></textarea>
+        <select name="timing" required>
+          <option value="" disabled selected>When do you need this?</option>
+          <option value="asap">As soon as possible</option>
+          <option value="week">Within a week</option>
+          <option value="month">Within a month</option>
+          <option value="quotes">Just getting quotes</option>
+        </select>
+        <button type="submit" class="lead-capture-submit">Find Me a Local Business</button>
+      </form>
+      <div class="lead-capture-thanks" id="lc-thanks">
+        ✅ Thanks! We'll be in touch within 24 hours with local businesses who can help.
+      </div>
+    </div>
+  </section>
+
+  <!-- Hidden Netlify form stubs so each category form is detected at build time -->
+  <div style="display:none" aria-hidden="true">
+    <form name="lead-capture-trades" data-netlify="true"><input name="full-name"/><input name="phone"/><input name="email"/><input name="postcode"/><textarea name="service-needed"></textarea><select name="timing"><option value="asap">ASAP</option></select></form>
+    <form name="lead-capture-food-drink" data-netlify="true"><input name="full-name"/><input name="phone"/><input name="email"/><input name="postcode"/><textarea name="service-needed"></textarea><select name="timing"><option value="asap">ASAP</option></select></form>
+    <form name="lead-capture-health-beauty" data-netlify="true"><input name="full-name"/><input name="phone"/><input name="email"/><input name="postcode"/><textarea name="service-needed"></textarea><select name="timing"><option value="asap">ASAP</option></select></form>
+    <form name="lead-capture-automotive" data-netlify="true"><input name="full-name"/><input name="phone"/><input name="email"/><input name="postcode"/><textarea name="service-needed"></textarea><select name="timing"><option value="asap">ASAP</option></select></form>
+    <form name="lead-capture-professional-services" data-netlify="true"><input name="full-name"/><input name="phone"/><input name="email"/><input name="postcode"/><textarea name="service-needed"></textarea><select name="timing"><option value="asap">ASAP</option></select></form>
+    <form name="lead-capture-retail" data-netlify="true"><input name="full-name"/><input name="phone"/><input name="email"/><input name="postcode"/><textarea name="service-needed"></textarea><select name="timing"><option value="asap">ASAP</option></select></form>
+    <form name="lead-capture-creative-media" data-netlify="true"><input name="full-name"/><input name="phone"/><input name="email"/><input name="postcode"/><textarea name="service-needed"></textarea><select name="timing"><option value="asap">ASAP</option></select></form>
+    <form name="lead-capture-sports-leisure" data-netlify="true"><input name="full-name"/><input name="phone"/><input name="email"/><input name="postcode"/><textarea name="service-needed"></textarea><select name="timing"><option value="asap">ASAP</option></select></form>
+  </div>
 
   <!-- Listings -->
   <section class="section listings-section">
@@ -118,10 +163,21 @@
         <h4>More</h4>
         <ul>
           <li><a href="add-listing.html">Add Your Business</a></li>
+          <li><a href="offers.html">Offers &amp; Promotions</a></li>
           <li><a href="grow.html">Grow Online</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <form class="footer-nl-form" name="newsletter-signup" onsubmit="handleFooterNl(event, this, 'footer-nl-thanks-biz')">
+          <input type="hidden" name="form-name" value="newsletter-signup" />
+          <input type="text" name="first-name" placeholder="First Name" />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <button type="submit" class="footer-nl-submit">Join the Newsletter</button>
+        </form>
+        <div class="footer-nl-thanks" id="footer-nl-thanks-biz">You're in! 🎉</div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -150,6 +206,7 @@
           const catLabel = getCategoryLabel(catParam);
           document.getElementById('page-title').textContent = catLabel;
           document.getElementById('page-subtitle').textContent = `Browse ${catLabel} businesses in Aylesbury`;
+          showLeadCapture(catParam, catLabel);
         }
         if (qParam) {
           document.getElementById('search-input').value = qParam;
@@ -209,7 +266,36 @@
       document.getElementById('search-input').value = '';
       document.querySelector('input[name="category"][value=""]').checked = true;
       document.querySelector('input[name="tier"][value=""]').checked = true;
+      document.getElementById('lead-capture-section').classList.remove('visible');
       applyFilters();
+    }
+
+    function showLeadCapture(cat, catLabel) {
+      document.getElementById('lc-headline').textContent = `Looking for a local ${catLabel} in Aylesbury?`;
+      document.getElementById('lc-form-name').value = `lead-capture-${cat}`;
+      document.getElementById('lc-category-field').value = cat;
+      document.getElementById('lead-capture-section').classList.add('visible');
+    }
+
+    function handleLeadCapture(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+        .then(() => {
+          form.style.display = 'none';
+          document.getElementById('lc-thanks').classList.add('visible');
+        }).catch(() => form.submit());
+    }
+
+    function handleFooterNl(e, form, thanksId) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+        .then(() => {
+          form.style.display = 'none';
+          document.getElementById(thanksId).classList.add('visible');
+        }).catch(() => form.submit());
     }
   </script>
 </body>

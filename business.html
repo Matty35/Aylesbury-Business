@@ -21,6 +21,7 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="businesses.html" class="nav-link">All Businesses</a>
         <a href="index.html#categories" class="nav-link">Categories</a>
+        <a href="offers.html" class="nav-link">Offers</a>
         <a href="grow.html" class="nav-link">Grow Online</a>
         <a href="add-listing.html" class="btn btn-primary btn-sm">Add Your Business</a>
       </nav>
@@ -80,10 +81,21 @@
         <h4>More</h4>
         <ul>
           <li><a href="add-listing.html">Add Your Business</a></li>
+          <li><a href="offers.html">Offers &amp; Promotions</a></li>
           <li><a href="grow.html">Grow Online</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <form class="footer-nl-form" name="newsletter-signup" onsubmit="handleFooterNl(event, this, 'footer-nl-thanks-biz-profile')">
+          <input type="hidden" name="form-name" value="newsletter-signup" />
+          <input type="text" name="first-name" placeholder="First Name" />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <button type="submit" class="footer-nl-submit">Join the Newsletter</button>
+        </form>
+        <div class="footer-nl-thanks" id="footer-nl-thanks-biz-profile">You're in! 🎉</div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -96,6 +108,13 @@
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
   <script>
+    function handleFooterNl(e, form, thanksId) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+        .then(() => { form.style.display = 'none'; document.getElementById(thanksId).classList.add('visible'); })
+        .catch(() => form.submit());
+    }
     document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const slug = params.get('slug');

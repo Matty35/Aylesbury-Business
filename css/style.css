@@ -476,7 +476,7 @@ address { font-style: normal; }
 
 .footer-inner {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
   gap: 40px;
   padding-bottom: 40px;
 }
@@ -1089,6 +1089,306 @@ address { font-style: normal; }
   .grow-why-grid { grid-template-columns: 1fr; }
   .grow-hero { padding: 56px 0 48px; }
   .grow-hero-trust { gap: 8px; font-size: 13px; }
+}
+
+/* ============================================================
+   Lead Capture Form (category pages)
+   ============================================================ */
+.lead-capture-section {
+  background: #1B2A4A;
+  padding: 48px 0;
+  display: none;
+}
+.lead-capture-section.visible { display: block; }
+.lead-capture-inner { max-width: 780px; margin: 0 auto; }
+.lead-capture-section h2 { color: #fff; font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+.lead-capture-section .lc-sub { color: rgba(255,255,255,.72); margin-bottom: 28px; font-size: 15px; }
+.lead-capture-form { display: grid; gap: 14px; }
+.lead-capture-form .lc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.lead-capture-form input,
+.lead-capture-form textarea,
+.lead-capture-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid rgba(255,255,255,.18);
+  border-radius: 8px;
+  background: rgba(255,255,255,.07);
+  color: #fff;
+  font-size: 15px;
+  font-family: var(--font);
+  outline: none;
+  transition: border-color .2s;
+}
+.lead-capture-form input::placeholder,
+.lead-capture-form textarea::placeholder { color: rgba(255,255,255,.4); }
+.lead-capture-form input:focus,
+.lead-capture-form textarea:focus,
+.lead-capture-form select:focus { border-color: #F59E0B; }
+.lead-capture-form select option { background: #1B2A4A; color: #fff; }
+.lead-capture-form textarea { min-height: 90px; resize: vertical; }
+.lead-capture-submit {
+  background: #F59E0B;
+  color: #1B2A4A;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background .2s, transform .1s;
+  justify-self: start;
+}
+.lead-capture-submit:hover { background: #d97706; transform: translateY(-1px); }
+.lead-capture-thanks {
+  display: none;
+  background: rgba(245,158,11,.15);
+  border: 2px solid #F59E0B;
+  border-radius: 10px;
+  padding: 20px 24px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+.lead-capture-thanks.visible { display: block; }
+@media (max-width: 600px) {
+  .lead-capture-form .lc-row { grid-template-columns: 1fr; }
+  .lead-capture-submit { width: 100%; justify-self: stretch; }
+}
+
+/* ============================================================
+   Newsletter Band
+   ============================================================ */
+.newsletter-band {
+  background: #F59E0B;
+  padding: 56px 0;
+}
+.newsletter-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.newsletter-copy h2 { font-size: 26px; font-weight: 700; color: #1B2A4A; margin-bottom: 8px; }
+.newsletter-copy p { color: rgba(27,42,74,.72); font-size: 15px; line-height: 1.6; }
+.newsletter-form { display: flex; flex-direction: column; gap: 12px; }
+.newsletter-form .nl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.newsletter-form input {
+  padding: 13px 16px;
+  border: 2px solid rgba(27,42,74,.22);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: var(--font);
+  background: rgba(255,255,255,.65);
+  color: #1B2A4A;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.newsletter-form input:focus { border-color: #1B2A4A; background: #fff; }
+.newsletter-form input::placeholder { color: rgba(27,42,74,.42); }
+.newsletter-submit {
+  background: #1B2A4A;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background .2s;
+  width: 100%;
+}
+.newsletter-submit:hover { background: #152038; }
+.newsletter-thanks {
+  display: none;
+  background: rgba(27,42,74,.1);
+  border: 2px solid #1B2A4A;
+  border-radius: 10px;
+  padding: 16px 20px;
+  color: #1B2A4A;
+  font-weight: 600;
+  text-align: center;
+}
+.newsletter-thanks.visible { display: block; }
+@media (max-width: 900px) { .newsletter-inner { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .newsletter-form .nl-row { grid-template-columns: 1fr; } }
+
+/* Footer newsletter column */
+.footer-newsletter h4 {
+  color: rgba(255,255,255,.9);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 14px;
+}
+.footer-nl-form { display: flex; flex-direction: column; gap: 8px; }
+.footer-nl-form input {
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 6px;
+  background: rgba(255,255,255,.07);
+  color: #fff;
+  font-size: 13px;
+  font-family: var(--font);
+  outline: none;
+  transition: border-color .2s;
+}
+.footer-nl-form input::placeholder { color: rgba(255,255,255,.38); }
+.footer-nl-form input:focus { border-color: #F59E0B; }
+.footer-nl-submit {
+  background: #F59E0B;
+  color: #1B2A4A;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background .2s;
+  width: 100%;
+}
+.footer-nl-submit:hover { background: #d97706; }
+.footer-nl-thanks { display: none; color: #F59E0B; font-size: 13px; font-weight: 600; padding: 8px 0; }
+.footer-nl-thanks.visible { display: block; }
+
+/* ============================================================
+   Offers & Promotions
+   ============================================================ */
+.offers-section { padding: 56px 0; background: #fff; }
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+.offer-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s, transform .2s;
+  position: relative;
+}
+.offer-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.offer-card-header {
+  padding: 20px 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.offer-logo {
+  width: 52px; height: 52px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.offer-logo img { width: 100%; height: 100%; object-fit: cover; }
+.offer-biz-name { font-size: 13px; font-weight: 600; color: var(--color-text); }
+.offer-biz-cat { font-size: 12px; color: var(--color-text-muted); }
+.offer-hot-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: #fef3c7; color: #92400e;
+  font-size: 12px; font-weight: 700;
+  padding: 3px 8px; border-radius: 20px;
+  border: 1px solid #fde68a;
+}
+.offer-card-body { padding: 14px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+.offer-title { font-size: 17px; font-weight: 700; color: #F59E0B; margin-bottom: 6px; line-height: 1.3; }
+.offer-desc { font-size: 14px; color: var(--color-text-muted); line-height: 1.55; flex: 1; margin-bottom: 12px; }
+.offer-expiry { font-size: 12px; color: #9ca3af; margin-bottom: 14px; }
+.offer-expiry strong { color: #6b7280; }
+@media (max-width: 900px) { .offer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .offer-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   Business Spotlight
+   ============================================================ */
+.spotlight-section { background: #f0f4ff; padding: 56px 0; }
+.spotlight-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  overflow: hidden;
+}
+.spotlight-logo-col {
+  background: #1B2A4A;
+  display: flex; align-items: center; justify-content: center;
+  padding: 36px 24px;
+}
+.spotlight-logo {
+  width: 108px; height: 108px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+  overflow: hidden;
+}
+.spotlight-logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+.spotlight-body { padding: 36px 40px; }
+.spotlight-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #F59E0B; margin-bottom: 8px; }
+.spotlight-name { font-size: 22px; font-weight: 700; color: #1B2A4A; margin-bottom: 10px; }
+.spotlight-story { font-size: 15px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 14px; }
+.spotlight-quote {
+  font-style: italic;
+  color: #374151;
+  font-size: 15px;
+  border-left: 3px solid #F59E0B;
+  padding-left: 14px;
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+@media (max-width: 700px) {
+  .spotlight-card { grid-template-columns: 1fr; }
+  .spotlight-logo-col { padding: 24px; min-height: 100px; }
+  .spotlight-body { padding: 24px 20px; }
+}
+
+/* ============================================================
+   Offers page hero & layout
+   ============================================================ */
+.offers-hero { background: #1B2A4A; padding: 56px 0 48px; }
+.offers-hero h1 { font-size: 34px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.offers-hero p { color: rgba(255,255,255,.72); font-size: 17px; max-width: 600px; }
+.offers-filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+.offers-filter-btn {
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,.22);
+  background: transparent;
+  color: rgba(255,255,255,.8);
+  font-size: 14px;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all .2s;
+}
+.offers-filter-btn.active,
+.offers-filter-btn:hover { background: #F59E0B; border-color: #F59E0B; color: #1B2A4A; font-weight: 700; }
+.offers-main { padding: 48px 0 80px; }
+.offers-cta-box {
+  background: #1B2A4A;
+  border-radius: 14px;
+  padding: 40px 48px;
+  text-align: center;
+  margin-top: 56px;
+}
+.offers-cta-box h3 { color: #fff; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.offers-cta-box p { color: rgba(255,255,255,.72); margin-bottom: 20px; font-size: 15px; }
+@media (max-width: 700px) {
+  .offers-hero h1 { font-size: 26px; }
+  .offers-cta-box { padding: 28px 20px; }
 }
 
 /* ============================================================

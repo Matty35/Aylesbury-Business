@@ -21,6 +21,7 @@
         <a href="index.html" class="nav-link active">Home</a>
         <a href="businesses.html" class="nav-link">All Businesses</a>
         <a href="#categories" class="nav-link">Categories</a>
+        <a href="offers.html" class="nav-link">Offers</a>
         <a href="grow.html" class="nav-link">Grow Online</a>
         <a href="add-listing.html" class="btn btn-primary btn-sm">Add Your Business</a>
       </nav>
@@ -73,6 +74,31 @@
         <div class="skeleton-card"></div>
         <div class="skeleton-card"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- Offers & Promotions -->
+  <section class="offers-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Offers &amp; Promotions</h2>
+        <a href="offers.html" class="section-link">View all →</a>
+      </div>
+      <div class="offer-grid" id="home-offers-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Spotlight -->
+  <section class="spotlight-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Business Spotlight</h2>
+      </div>
+      <div id="spotlight-container"></div>
     </div>
   </section>
 
@@ -142,6 +168,27 @@
     </div>
   </section>
 
+  <!-- Newsletter -->
+  <section class="newsletter-band">
+    <div class="container newsletter-inner">
+      <div class="newsletter-copy">
+        <h2>Stay in the Loop with Aylesbury Business</h2>
+        <p>Get exclusive local offers, business spotlights, new listings and promotions delivered straight to your inbox.</p>
+      </div>
+      <div>
+        <form class="newsletter-form" name="newsletter-signup" data-netlify="true" onsubmit="handleNewsletter(event, this, 'nl-thanks-home')">
+          <input type="hidden" name="form-name" value="newsletter-signup" />
+          <div class="nl-row">
+            <input type="text" name="first-name" placeholder="First Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+          </div>
+          <button type="submit" class="newsletter-submit">Join the Newsletter</button>
+        </form>
+        <div class="newsletter-thanks" id="nl-thanks-home">You're in! Welcome to the Aylesbury Business community 🎉</div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Banner -->
   <section class="cta-banner">
     <div class="container cta-inner">
@@ -180,10 +227,21 @@
         <h4>More</h4>
         <ul>
           <li><a href="add-listing.html">Add Your Business</a></li>
+          <li><a href="offers.html">Offers &amp; Promotions</a></li>
           <li><a href="grow.html">Grow Online</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <form class="footer-nl-form" name="newsletter-signup" onsubmit="handleFooterNl(event, this, 'footer-nl-thanks-home')">
+          <input type="hidden" name="form-name" value="newsletter-signup" />
+          <input type="text" name="first-name" placeholder="First Name" />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <button type="submit" class="footer-nl-submit">Join the Newsletter</button>
+        </form>
+        <div class="footer-nl-thanks" id="footer-nl-thanks-home">You're in! 🎉</div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -196,6 +254,29 @@
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
   <script>
+    async function loadOffers() {
+      const res = await fetch('data/offers.json');
+      return res.json();
+    }
+    async function loadSpotlights() {
+      const res = await fetch('data/spotlights.json');
+      return res.json();
+    }
+    function formatExpiry(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+    function renderOfferCard(o) {
+      const catLabel = getCategoryLabel(o.category);
+      const icon = o.logo ? `<img src="${o.logo}" alt="${o.businessName}" />` : (getCategoryIcon(o.category) || '🏢');
+      const badge = o.featured ? '<span class="offer-hot-badge">Hot Deal 🔥</span>' : '';
+      return `<div class="offer-card">${badge}<div class="offer-card-header"><div class="offer-logo">${icon}</div><div><div class="offer-biz-name">${o.businessName}</div><div class="offer-biz-cat">${catLabel}</div></div></div><div class="offer-card-body"><div class="offer-title">${o.offerTitle}</div><p class="offer-desc">${o.offerDescription}</p><p class="offer-expiry">Offer ends <strong>${formatExpiry(o.expiryDate)}</strong></p><a href="business.html?slug=${o.slug}" class="btn btn-primary btn-sm">View Offer</a></div></div>`;
+    }
+    function renderSpotlight(s) {
+      const logo = s.logo ? `<img src="${s.logo}" alt="${s.businessName}" />` : `<span style="font-size:40px">🏢</span>`;
+      return `<div class="spotlight-card"><div class="spotlight-logo-col"><div class="spotlight-logo">${logo}</div></div><div class="spotlight-body"><div class="spotlight-label">⭐ Business Spotlight</div><div class="spotlight-name">${s.businessName}</div><p class="spotlight-story">${s.story}</p><blockquote class="spotlight-quote">"${s.ownerQuote}"</blockquote><a href="business.html?slug=${s.slug}" class="btn btn-primary">View Their Listing →</a></div></div>`;
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       loadListings().then(listings => {
         document.getElementById('total-count').textContent = listings.length;
@@ -203,7 +284,28 @@
         renderFeatured(listings, 'featured-grid');
         renderRecent(listings, 'recent-grid', 3);
       });
+      loadOffers().then(offers => {
+        document.getElementById('home-offers-grid').innerHTML = offers.slice(0,3).map(renderOfferCard).join('');
+      });
+      loadSpotlights().then(spots => {
+        if (spots.length) document.getElementById('spotlight-container').innerHTML = renderSpotlight(spots[0]);
+      });
     });
+
+    function handleNewsletter(e, form, thanksId) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+        .then(() => { form.style.display = 'none'; document.getElementById(thanksId).classList.add('visible'); })
+        .catch(() => form.submit());
+    }
+    function handleFooterNl(e, form, thanksId) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+        .then(() => { form.style.display = 'none'; document.getElementById(thanksId).classList.add('visible'); })
+        .catch(() => form.submit());
+    }
 
     function handleHeroSearch(e) {
       e.preventDefault();

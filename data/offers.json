@@ -1,0 +1,35 @@
+[
+  {
+    "id": "offer-001",
+    "businessName": "KS Roofing Specialists Ltd",
+    "slug": "ks-roofing-specialists-ltd",
+    "category": "trades",
+    "offerTitle": "Free Roof Inspection with Any Repair",
+    "offerDescription": "Book any roofing repair or replacement and receive a free comprehensive roof inspection worth £75. Protecting your home starts with knowing exactly what's going on up there.",
+    "expiryDate": "2026-04-30",
+    "logo": null,
+    "featured": true
+  },
+  {
+    "id": "offer-002",
+    "businessName": "DAV'S Men's Barbering",
+    "slug": "davs-mens-barbering",
+    "category": "health-beauty",
+    "offerTitle": "10% Off Your First Visit",
+    "offerDescription": "New to DAV'S? Get 10% off your first haircut, fade or beard trim. Just mention this offer when you book. Valid for new customers only at our Aylesbury barbershop.",
+    "expiryDate": "2026-05-31",
+    "logo": null,
+    "featured": true
+  },
+  {
+    "id": "offer-003",
+    "businessName": "Shotanmun",
+    "slug": "shotanmun",
+    "category": "creative-media",
+    "offerTitle": "Free 30-Minute Brand Strategy Call",
+    "offerDescription": "Not sure how photography could grow your business? Book a free 30-minute strategy call with Shotanmun and discover how professional imagery can transform your brand — no obligation.",
+    "expiryDate": "2026-06-30",
+    "logo": null,
+    "featured": false
+  }
+]
