@@ -771,6 +771,8 @@ address { font-style: normal; }
 .social-facebook:hover { background: #166fe5; color: white; }
 .social-instagram { background: linear-gradient(135deg, #e1306c, #f77737); color: white; }
 .social-instagram:hover { opacity: 0.9; color: white; }
+.social-tiktok { background: #010101; color: white; }
+.social-tiktok:hover { background: #333; color: white; }
 
 .listing-info-card {
   background: var(--color-white);

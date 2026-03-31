@@ -114,6 +114,7 @@ exports.handler = async (event) => {
     social: {
       facebook:  f['biz-facebook']  || '',
       instagram: f['biz-instagram'] || '',
+      tiktok:    f['biz-tiktok']    || '',
     },
     dateAdded:    new Date().toISOString().split('T')[0],
     tags:         [],

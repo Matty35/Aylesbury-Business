@@ -171,6 +171,7 @@
       const socialLinks = [];
       if (b.social?.facebook) socialLinks.push(`<a href="${b.social.facebook}" class="social-link social-facebook" target="_blank" rel="noopener">Facebook</a>`);
       if (b.social?.instagram) socialLinks.push(`<a href="${b.social.instagram}" class="social-link social-instagram" target="_blank" rel="noopener">Instagram</a>`);
+      if (b.social?.tiktok) socialLinks.push(`<a href="${b.social.tiktok}" class="social-link social-tiktok" target="_blank" rel="noopener">TikTok</a>`);
 
       document.getElementById('profile-sidebar').innerHTML = `
         <div class="contact-card">
