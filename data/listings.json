@@ -310,5 +310,33 @@
     "tags": [],
     "_contactName": "James Chandler",
     "_contactEmail": "james.chandler@nuffieldhealth.com"
+  },
+  {
+    "id": "hunter-health-project-001",
+    "name": "Hunter Health Project Ltd",
+    "slug": "hunter-health-project-ltd",
+    "category": "health-beauty",
+    "subcategory": "Nutrition & Health Coaching",
+    "tier": "featured",
+    "featured": true,
+    "description": "Hunter Health Project Ltd is run by Rachel, a specialist body image and relationship with food coach based in Pitstone, near Leighton Buzzard. Rachel helps clients build a healthier, more compassionate relationship with food and their bodies — moving away from diet culture and towards lasting confidence and wellbeing.",
+    "shortDescription": "Body image and relationship with food coach helping you ditch diet culture and build lasting confidence. Based in Pitstone, Buckinghamshire.",
+    "phone": "",
+    "email": "rachel@hunterhealthproject.com",
+    "website": "https://www.hunterhealthproject.com",
+    "address": {
+      "street": "Portland House, Westfield Road",
+      "town": "Pitstone, Leighton Buzzard",
+      "county": "Buckinghamshire",
+      "postcode": "LU7 9GU"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://www.facebook.com/profile.php?id=100094640100501",
+      "instagram": "https://www.instagram.com/hunterhealthproject/"
+    },
+    "dateAdded": "2026-03-31",
+    "tags": ["nutrition", "health coaching", "body image", "food coach", "wellbeing", "diet culture", "Pitstone", "Leighton Buzzard", "Buckinghamshire"]
   }
 ]
