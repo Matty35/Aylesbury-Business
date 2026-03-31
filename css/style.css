@@ -1394,6 +1394,151 @@ address { font-style: normal; }
 }
 
 /* ============================================================
+   SEO Audit Banner (appears above footer on every page)
+   ============================================================ */
+.seo-audit-banner {
+  background: #F59E0B;
+  padding: 40px 0;
+}
+.seo-audit-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.seo-audit-banner h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1B2A4A;
+  margin-bottom: 6px;
+}
+.seo-audit-banner p {
+  color: rgba(27,42,74,.78);
+  font-size: 15px;
+  max-width: 560px;
+}
+.btn-navy {
+  background: #1B2A4A;
+  color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-navy:hover { background: #152038; color: #fff; }
+@media (max-width: 700px) {
+  .seo-audit-banner-inner { flex-direction: column; text-align: center; }
+  .seo-audit-banner h2 { font-size: 19px; }
+}
+
+/* ============================================================
+   Free SEO Audit page
+   ============================================================ */
+.audit-hero { background: #1B2A4A; padding: 64px 0 56px; }
+.audit-hero h1 { font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 14px; line-height: 1.2; max-width: 700px; }
+.audit-hero p { color: rgba(255,255,255,.75); font-size: 18px; max-width: 620px; line-height: 1.6; }
+.audit-hero-badges { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+.audit-badge { background: rgba(245,158,11,.18); border: 1px solid rgba(245,158,11,.4); color: #F59E0B; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 20px; }
+
+.audit-explainer { padding: 64px 0; background: #fff; }
+.audit-explainer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.audit-explainer h2 { font-size: 26px; font-weight: 700; color: #1B2A4A; margin-bottom: 18px; }
+.audit-explainer p { color: var(--color-text-muted); font-size: 15px; line-height: 1.75; margin-bottom: 14px; }
+.audit-explainer-visual { background: #1B2A4A; border-radius: 16px; padding: 36px; text-align: center; }
+.audit-search-mock { background: #fff; border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; }
+.audit-search-bar { background: #f3f4f6; border-radius: 6px; padding: 10px 14px; font-size: 14px; color: #374151; margin-bottom: 14px; text-align: left; }
+.audit-result { padding: 10px 0; border-bottom: 1px solid #f3f4f6; text-align: left; }
+.audit-result:last-child { border-bottom: none; }
+.audit-result-title { font-size: 14px; font-weight: 600; color: #1a0dab; }
+.audit-result-url { font-size: 12px; color: #006621; margin-bottom: 2px; }
+.audit-result-desc { font-size: 12px; color: #545454; }
+.audit-result.you { background: rgba(245,158,11,.08); border-radius: 6px; padding: 10px; border: 1.5px solid #F59E0B; }
+.audit-result.you .audit-result-title { color: #F59E0B; }
+.audit-missing { background: rgba(239,68,68,.1); border: 1.5px dashed rgba(239,68,68,.5); border-radius: 6px; padding: 12px; text-align: center; color: #ef4444; font-size: 13px; font-weight: 600; }
+.audit-visual-caption { color: rgba(255,255,255,.6); font-size: 13px; margin-top: 12px; }
+
+.audit-includes { padding: 64px 0; background: #f8faff; }
+.audit-includes h2 { font-size: 28px; font-weight: 700; color: #1B2A4A; text-align: center; margin-bottom: 40px; }
+.audit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.audit-card { background: #fff; border: 1px solid var(--color-border); border-radius: 12px; padding: 28px 24px; box-shadow: var(--shadow); }
+.audit-card-icon { font-size: 32px; margin-bottom: 12px; }
+.audit-card h3 { font-size: 16px; font-weight: 700; color: #1B2A4A; margin-bottom: 8px; }
+.audit-card p { font-size: 14px; color: var(--color-text-muted); line-height: 1.6; }
+
+.audit-testimonials { padding: 64px 0; background: #1B2A4A; }
+.audit-testimonials h2 { font-size: 28px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 36px; }
+.audit-testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.audit-testimonial-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 28px; }
+.audit-testimonial-card .stars { color: #F59E0B; font-size: 18px; margin-bottom: 12px; }
+.audit-testimonial-card blockquote { color: rgba(255,255,255,.88); font-size: 15px; line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+.audit-testimonial-card .attrib { color: #F59E0B; font-weight: 700; font-size: 14px; }
+.audit-testimonial-card .attrib span { color: rgba(255,255,255,.55); font-weight: 400; }
+
+.audit-form-section { padding: 64px 0; background: #fff; }
+.audit-form-wrap { max-width: 680px; margin: 0 auto; }
+.audit-form-section h2 { font-size: 28px; font-weight: 700; color: #1B2A4A; text-align: center; margin-bottom: 8px; }
+.audit-form-section .audit-form-sub { text-align: center; color: var(--color-text-muted); font-size: 15px; margin-bottom: 36px; }
+.audit-form { display: flex; flex-direction: column; gap: 16px; background: #f8faff; border: 1px solid var(--color-border); border-radius: 16px; padding: 36px; }
+.audit-form .form-group label { font-weight: 600; font-size: 14px; color: #1B2A4A; display: block; margin-bottom: 6px; }
+.audit-form .field-hint { font-size: 12px; color: var(--color-text-muted); margin-top: 4px; }
+.audit-form input[type="text"],
+.audit-form input[type="email"],
+.audit-form input[type="tel"],
+.audit-form input[type="url"],
+.audit-form select,
+.audit-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: var(--font);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color .2s;
+  background: #fff;
+}
+.audit-form input:focus,
+.audit-form select:focus,
+.audit-form textarea:focus { border-color: #1B2A4A; }
+.audit-form textarea { min-height: 100px; resize: vertical; }
+.audit-checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+.audit-checkbox-label { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-text); cursor: pointer; }
+.audit-checkbox-label input[type="checkbox"] { width: 18px; height: 18px; accent-color: #1B2A4A; cursor: pointer; flex-shrink: 0; }
+.audit-submit {
+  background: #1B2A4A;
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background .2s, transform .1s;
+  width: 100%;
+  margin-top: 8px;
+}
+.audit-submit:hover { background: #152038; transform: translateY(-1px); }
+.audit-confirm { display: none; background: #d1fae5; border: 2px solid #6ee7b7; border-radius: 12px; padding: 24px; text-align: center; }
+.audit-confirm.visible { display: block; }
+.audit-confirm h3 { color: #065f46; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.audit-confirm p { color: #047857; font-size: 15px; line-height: 1.6; }
+
+.audit-bottom-cta { background: #F59E0B; padding: 64px 0; text-align: center; }
+.audit-bottom-cta h2 { font-size: 28px; font-weight: 800; color: #1B2A4A; margin-bottom: 14px; }
+.audit-bottom-cta p { color: rgba(27,42,74,.78); font-size: 16px; max-width: 580px; margin: 0 auto 28px; line-height: 1.65; }
+
+@media (max-width: 900px) {
+  .audit-explainer-inner { grid-template-columns: 1fr; }
+  .audit-grid { grid-template-columns: 1fr 1fr; }
+  .audit-testimonial-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .audit-hero h1 { font-size: 26px; }
+  .audit-grid { grid-template-columns: 1fr; }
+  .audit-form { padding: 24px 18px; }
+}
+
+/* ============================================================
    About / Contact pages
    ============================================================ */
 .content-page { padding: 48px 0 80px; }
