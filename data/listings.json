@@ -338,6 +338,47 @@
       "tiktok": "https://www.tiktok.com/@hunterhealthproject"
     },
     "dateAdded": "2026-03-31",
-    "tags": ["nutrition", "health coaching", "body image", "food coach", "wellbeing", "diet culture", "Pitstone", "Leighton Buzzard", "Buckinghamshire"]
+    "tags": [
+      "nutrition",
+      "health coaching",
+      "body image",
+      "food coach",
+      "wellbeing",
+      "diet culture",
+      "Pitstone",
+      "Leighton Buzzard",
+      "Buckinghamshire"
+    ]
+  },
+  {
+    "id": "mng2f6wfbueaz",
+    "name": "AYLESBURY TRAILERS",
+    "slug": "aylesbury-trailers",
+    "category": "",
+    "subcategory": "",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "AYLESBURY TRAILERS based in Aylesbury.",
+    "phone": "01296747602",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "ENDSLEIGH WORKSHOP",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP17 8TX"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "tiktok": ""
+    },
+    "dateAdded": "2026-04-01",
+    "tags": [],
+    "_contactName": "DYLAN BROWN",
+    "_contactEmail": "SALES@AYLESBURYTRAILERS.CO.UK"
   }
 ]
