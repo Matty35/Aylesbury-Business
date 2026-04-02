@@ -380,5 +380,36 @@
     "tags": [],
     "_contactName": "DYLAN BROWN",
     "_contactEmail": "SALES@AYLESBURYTRAILERS.CO.UK"
+  },
+  {
+    "id": "mnh50a4hsdqbc",
+    "name": "Michael Anthony Estate Agents Aylesbury",
+    "slug": "michael-anthony-estate-agents-aylesbury",
+    "category": "",
+    "subcategory": "",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Michael Anthony Estate Agents Aylesbury based in Aylesbury.",
+    "phone": "01296 433666",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "54 Kingsbury",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP20 2JE"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "tiktok": ""
+    },
+    "dateAdded": "2026-04-02",
+    "tags": [],
+    "_contactName": "Michael Anthony Estate Agents Aylesbury",
+    "_contactEmail": "michaelanthonyayles@gmail.com"
   }
 ]
