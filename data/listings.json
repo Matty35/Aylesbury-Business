@@ -312,6 +312,47 @@
     "_contactEmail": "james.chandler@nuffieldhealth.com"
   },
   {
+    "id": "ap-building-restorations-001",
+    "name": "AP Building and Restorations Ltd",
+    "slug": "ap-building-and-restorations-ltd",
+    "category": "trades",
+    "subcategory": "Building & Restoration",
+    "tier": "featured",
+    "featured": true,
+    "description": "AP Building and Restorations Ltd is a specialist building and restoration company serving Aylesbury and surrounding villages. We cover a wide range of services including brickwork, stonework, carpentry, roofing, landscaping, groundworks, lime pointing, listed building restorations and conservation restorations.",
+    "shortDescription": "Specialist building and restoration company serving Aylesbury and surrounding villages — brickwork, stonework, carpentry, roofing, lime pointing, listed buildings and more.",
+    "phone": "07714034919",
+    "email": "Apbuildingandrestorations@outlook.com",
+    "website": "",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://www.facebook.com/apbuildingrestorations/",
+      "instagram": "https://www.instagram.com/apbuildingrestorationsltd/"
+    },
+    "dateAdded": "2026-04-04",
+    "tags": [
+      "building",
+      "restoration",
+      "brickwork",
+      "stonework",
+      "carpentry",
+      "roofing",
+      "landscaping",
+      "groundworks",
+      "lime pointing",
+      "listed buildings",
+      "conservation",
+      "Aylesbury"
+    ]
+  },
+  {
     "id": "little-glow-aylesbury-001",
     "name": "Little Glow Aylesbury",
     "slug": "little-glow-aylesbury",
