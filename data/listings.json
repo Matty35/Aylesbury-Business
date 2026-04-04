@@ -312,6 +312,44 @@
     "_contactEmail": "james.chandler@nuffieldhealth.com"
   },
   {
+    "id": "little-glow-aylesbury-001",
+    "name": "Little Glow Aylesbury",
+    "slug": "little-glow-aylesbury",
+    "category": "family-kids",
+    "subcategory": "Baby & Toddler Groups",
+    "tier": "featured",
+    "featured": true,
+    "description": "Little Glow Aylesbury is a magical sensory room experience for newborns to pre-walkers. It's the perfect place to unwind, connect with other caregivers, and let your little one explore in a gentle, welcoming environment. Sessions are held across Aylesbury at Fairford Leys Community Centre, Haydon Hill Community Centre and Wendover Memorial Hall.",
+    "shortDescription": "A magical sensory room for newborns to pre-walkers in Aylesbury — a gentle space to explore, unwind and connect with other caregivers.",
+    "phone": "",
+    "email": "aylesbury1@thelittlesensory.co",
+    "website": "",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": "https://www.instagram.com/littleglowaylesbury"
+    },
+    "dateAdded": "2026-04-04",
+    "tags": [
+      "baby group",
+      "sensory",
+      "newborn",
+      "toddler",
+      "baby classes",
+      "Aylesbury",
+      "Fairford Leys",
+      "Haydon Hill",
+      "Wendover"
+    ]
+  },
+  {
     "id": "hunter-health-project-001",
     "name": "Hunter Health Project Ltd",
     "slug": "hunter-health-project-ltd",

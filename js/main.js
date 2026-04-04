@@ -9,6 +9,7 @@ const CATEGORY_LABELS = {
   'retail': 'Retail & Shopping',
   'creative-media': 'Creative & Media',
   'sports-leisure': 'Sports & Leisure',
+  'family-kids': 'Family & Kids',
 };
 
 const CATEGORY_ICONS = {
@@ -20,6 +21,7 @@ const CATEGORY_ICONS = {
   'retail': '🛍️',
   'creative-media': '📸',
   'sports-leisure': '⚽',
+  'family-kids': '👶',
 };
 
 function getCategoryLabel(cat) {
