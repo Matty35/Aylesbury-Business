@@ -312,6 +312,45 @@
     "_contactEmail": "james.chandler@nuffieldhealth.com"
   },
   {
+    "id": "jlc-carpentry-001",
+    "name": "JLC Carpentry Ltd",
+    "slug": "jlc-carpentry-ltd",
+    "category": "trades",
+    "subcategory": "Carpentry",
+    "tier": "featured",
+    "featured": true,
+    "description": "JLC Carpentry Ltd covers all aspects of 1st and 2nd fix carpentry across Aylesbury and surrounding areas. Services include kitchen fitting, roofing, flooring, skirting and architraves — no job too big or too small.",
+    "shortDescription": "All aspects of 1st and 2nd fix carpentry across Aylesbury — kitchen fitting, roofing, flooring, skirting and architraves.",
+    "phone": "07585904607",
+    "email": "jlccarpentry@hotmail.co.uk",
+    "website": "",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://www.facebook.com/100063530560191/",
+      "instagram": "https://www.instagram.com/jlccarpentry/"
+    },
+    "dateAdded": "2026-04-04",
+    "tags": [
+      "carpentry",
+      "1st fix",
+      "2nd fix",
+      "kitchen fitting",
+      "roofing",
+      "flooring",
+      "skirting",
+      "architraves",
+      "Aylesbury",
+      "Buckinghamshire"
+    ]
+  },
+  {
     "id": "ap-building-restorations-001",
     "name": "AP Building and Restorations Ltd",
     "slug": "ap-building-and-restorations-ltd",
