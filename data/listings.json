@@ -1,5 +1,48 @@
 [
   {
+    "id": "bp-collins-llp-001",
+    "name": "B P Collins LLP",
+    "slug": "bp-collins-llp",
+    "category": "professional-services",
+    "subcategory": "Solicitors & Legal Services",
+    "tier": "featured",
+    "featured": true,
+    "description": "B P Collins LLP is a multi-award winning law firm founded in 1966 by Brian P Collins, offering high-quality legal advice for individuals, families and businesses. Specialising in Commercial, Corporate, Dispute Resolution, Employment, Property, Family and Divorce, Wills, Trusts and Probate. Our lawyers are dedicated to delivering the best legal advice — we solve problems, manage risk and always seek to add value. With offices in Gerrards Cross (Buckinghamshire), Thame (Oxfordshire) and London, we serve clients across the region and beyond.",
+    "shortDescription": "Multi-award winning solicitors founded in 1966, offering expert legal advice across Commercial, Property, Family, Employment, Wills and more. Offices in Gerrards Cross, Thame and London.",
+    "phone": "01753 889995",
+    "email": "enquiries@bpcollins.co.uk",
+    "website": "https://www.bpcollins.co.uk",
+    "address": {
+      "street": "20 Station Road",
+      "town": "Gerrards Cross",
+      "county": "Buckinghamshire",
+      "postcode": "SL9 8EL"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "https://www.facebook.com/BPCollinsSolicitors",
+      "instagram": "https://www.instagram.com/bpcollinsllp/",
+      "linkedin": "https://www.linkedin.com/company/bpcollinslaw/"
+    },
+    "dateAdded": "2026-04-14",
+    "tags": [
+      "solicitors",
+      "legal advice",
+      "commercial law",
+      "corporate law",
+      "dispute resolution",
+      "employment law",
+      "property law",
+      "family law",
+      "divorce",
+      "wills",
+      "probate",
+      "Gerrards Cross",
+      "Buckinghamshire"
+    ]
+  },
+  {
     "id": "jk-electrical-installations-001",
     "name": "JK Electrical Installations Ltd",
     "slug": "jk-electrical-installations-ltd",
