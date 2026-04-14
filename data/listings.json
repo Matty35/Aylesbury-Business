@@ -1,5 +1,145 @@
 [
   {
+    "id": "ab-plumbing-heating-001",
+    "name": "AB Plumbing & Heating",
+    "slug": "ab-plumbing-and-heating",
+    "category": "trades",
+    "subcategory": "Plumbing & Heating",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Plumbing specialists in Aylesbury covering leak detection, pipe repair, shower installation and more. Open 24 hours.",
+    "phone": "07510 247365",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "185 Meadowcroft",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP19 9HH"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["plumbing", "heating", "leak detection", "pipe repair", "shower installation", "Aylesbury"]
+  },
+  {
+    "id": "gk-plumbing-heating-001",
+    "name": "GK Plumbing & Heating",
+    "slug": "gk-plumbing-and-heating",
+    "category": "trades",
+    "subcategory": "Plumbing & Heating",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Plumbing and heating service covering Aylesbury and nearby areas — bathroom remodelling, drain cleaning and more. Open 24 hours.",
+    "phone": "01296 434785",
+    "email": "",
+    "website": "https://www.gkplumbing.net",
+    "address": {
+      "street": "81 Kestrel Way",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP19 0GH"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["plumbing", "heating", "bathroom remodelling", "drain cleaning", "Aylesbury"]
+  },
+  {
+    "id": "umbrella-plumbing-heating-001",
+    "name": "Umbrella Plumbing & Heating",
+    "slug": "umbrella-plumbing-and-heating",
+    "category": "trades",
+    "subcategory": "Plumbing & Heating",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Gas engineer and plumbing & heating service based in Aylesbury. Open 24 hours.",
+    "phone": "07707 800780",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "74a Bicester Road",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP19 8AL"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["plumbing", "heating", "gas engineer", "Aylesbury"]
+  },
+  {
+    "id": "glow-plumbing-heating-001",
+    "name": "Glow Plumbing & Heating Ltd",
+    "slug": "glow-plumbing-and-heating-ltd",
+    "category": "trades",
+    "subcategory": "Plumbing & Heating",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Experienced plumbing and heating specialists serving Aylesbury — boiler installation, hot water cylinders and more. 9+ years in business.",
+    "phone": "07700 124435",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["plumbing", "heating", "boiler installation", "hot water cylinder", "Aylesbury"]
+  },
+  {
+    "id": "247-rapid-response-001",
+    "name": "247 Rapid Response",
+    "slug": "247-rapid-response",
+    "category": "trades",
+    "subcategory": "Plumbing & Heating",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "24/7 emergency plumbing service covering Aylesbury — bathroom installation, showers, hot water cylinders and more.",
+    "phone": "07893 971095",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["plumbing", "emergency plumber", "24/7", "bathroom installation", "Aylesbury"]
+  },
+  {
     "id": "mn6cqakv66uwm",
     "name": "Aylesbury Mechanic",
     "slug": "aylesbury-mechanic",
