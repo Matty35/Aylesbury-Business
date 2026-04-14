@@ -1,5 +1,145 @@
 [
   {
+    "id": "jk-electrical-installations-001",
+    "name": "JK Electrical Installations Ltd",
+    "slug": "jk-electrical-installations-ltd",
+    "category": "trades",
+    "subcategory": "Electrician",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Electricians serving Aylesbury and nearby areas — EV charger installation, electrical fixtures and more.",
+    "phone": "01296 256901",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "Suite A 3rd Floor, Ardenham Court, Oxford Road",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP19 8HT"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["electrician", "EV charger", "electrical installation", "Aylesbury"]
+  },
+  {
+    "id": "marvellous-electricals-001",
+    "name": "Marvellous Electricals Ltd",
+    "slug": "marvellous-electricals-ltd",
+    "category": "trades",
+    "subcategory": "Electrician",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Electricians serving Aylesbury and nearby areas — socket and switch installation and more.",
+    "phone": "07376 292806",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": ""
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["electrician", "socket installation", "electrical", "Aylesbury"]
+  },
+  {
+    "id": "martindale-electrical-001",
+    "name": "Martindale Electrical Limited",
+    "slug": "martindale-electrical-limited",
+    "category": "trades",
+    "subcategory": "Electrician",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Electricians based in Aylesbury — light fixture installation, outdoor lighting and electrical sockets.",
+    "phone": "01296 252678",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "Dicks Way",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP19 9UA"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["electrician", "light installation", "outdoor lighting", "Aylesbury"]
+  },
+  {
+    "id": "cr-james-electrical-001",
+    "name": "C R James Electrical",
+    "slug": "cr-james-electrical",
+    "category": "trades",
+    "subcategory": "Electrician",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Electricians serving Aylesbury and nearby areas — EV charger installation, electrical inspections and more.",
+    "phone": "07708 814103",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "33 Northumberland Avenue",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP21 7HJ"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["electrician", "EV charger", "electrical inspections", "Aylesbury"]
+  },
+  {
+    "id": "paradigm-electrical-solutions-001",
+    "name": "Paradigm Electrical Solutions",
+    "slug": "paradigm-electrical-solutions",
+    "category": "trades",
+    "subcategory": "Electrician",
+    "tier": "free",
+    "featured": false,
+    "description": "",
+    "shortDescription": "Electricians serving Aylesbury and nearby areas — EV charger installation, socket and switch installation and more. Open 24 hours.",
+    "phone": "01296 320556",
+    "email": "",
+    "website": "",
+    "address": {
+      "street": "9 Bessemer Crescent",
+      "town": "Aylesbury",
+      "county": "Buckinghamshire",
+      "postcode": "HP19 8TF"
+    },
+    "logo": null,
+    "photos": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    },
+    "dateAdded": "2026-04-14",
+    "tags": ["electrician", "EV charger", "socket installation", "24 hours", "Aylesbury"]
+  },
+  {
     "id": "ab-plumbing-heating-001",
     "name": "AB Plumbing & Heating",
     "slug": "ab-plumbing-and-heating",
