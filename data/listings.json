@@ -312,43 +312,6 @@
     "_contactEmail": "james.chandler@nuffieldhealth.com"
   },
   {
-    "id": "s3-cars-aylesbury-001",
-    "name": "S3 Cars Aylesbury Executive Travel",
-    "slug": "s3-cars-aylesbury-executive-travel",
-    "category": "automotive",
-    "subcategory": "Executive Travel & Chauffeur",
-    "tier": "featured",
-    "featured": true,
-    "description": "S3 Cars provides reliable, professional executive chauffeur services tailored for airport transfers, business travel, and private hire. Specialising in Heathrow Airport journeys, we offer punctual, comfortable, and discreet transport with a focus on high standards of customer service. Whether for corporate clients or personal travel, we ensure a smooth and stress-free experience from start to finish. Covering Aylesbury, Haddenham, Thame, Long Crendon, Wendover and surrounding areas.",
-    "shortDescription": "Professional executive chauffeur service covering Aylesbury and surrounding areas — airport transfers, business travel and private hire.",
-    "phone": "07586 855533",
-    "email": "info@s3cars.co.uk",
-    "website": "",
-    "address": {
-      "street": "",
-      "town": "Aylesbury",
-      "county": "Buckinghamshire",
-      "postcode": ""
-    },
-    "logo": null,
-    "photos": [],
-    "social": {
-      "facebook": "",
-      "instagram": "https://www.instagram.com/s3cars_aylesbury/"
-    },
-    "dateAdded": "2026-04-04",
-    "tags": [
-      "chauffeur",
-      "executive travel",
-      "airport transfers",
-      "Heathrow",
-      "private hire",
-      "business travel",
-      "Aylesbury",
-      "Buckinghamshire"
-    ]
-  },
-  {
     "id": "jlc-carpentry-001",
     "name": "JLC Carpentry Ltd",
     "slug": "jlc-carpentry-ltd",
@@ -571,14 +534,14 @@
     "id": "mnxs6e0mcoa31",
     "name": "S3 Cars Aylesbury Executive Travel",
     "slug": "s3-cars-aylesbury-executive-travel",
-    "category": "",
-    "subcategory": "",
-    "tier": "free",
-    "featured": false,
-    "description": "",
-    "shortDescription": "S3 Cars Aylesbury Executive Travel based in Aylesbury.",
-    "phone": "07586855533",
-    "email": "",
+    "category": "automotive",
+    "subcategory": "Executive Travel & Chauffeur",
+    "tier": "featured",
+    "featured": true,
+    "description": "S3 Cars provides reliable, professional executive chauffeur services tailored for airport transfers, business travel, and private hire. Specialising in Heathrow Airport journeys, we offer punctual, comfortable, and discreet transport with a focus on high standards of customer service. Whether for corporate clients or personal travel, we ensure a smooth and stress-free experience from start to finish. Covering Aylesbury, Haddenham, Thame, Long Crendon, Wendover and surrounding areas.",
+    "shortDescription": "Professional executive chauffeur service covering Aylesbury and surrounding areas — airport transfers, business travel and private hire.",
+    "phone": "07586 855533",
+    "email": "info@s3cars.co.uk",
     "website": "",
     "address": {
       "street": "5 Victor Close",
@@ -590,11 +553,19 @@
     "photos": [],
     "social": {
       "facebook": "",
-      "instagram": "",
-      "tiktok": ""
+      "instagram": "https://www.instagram.com/s3cars_aylesbury/"
     },
     "dateAdded": "2026-04-13",
-    "tags": [],
+    "tags": [
+      "chauffeur",
+      "executive travel",
+      "airport transfers",
+      "Heathrow",
+      "private hire",
+      "business travel",
+      "Aylesbury",
+      "Buckinghamshire"
+    ],
     "_contactName": "Abul",
     "_contactEmail": "info@s3cars.co.uk"
   }
