@@ -117,6 +117,12 @@
           </ul>
         </div>
         <button class="btn btn-outline btn-sm reset-btn" onclick="resetFilters()">Reset Filters</button>
+        <div class="filter-block" id="popular-searches-block" style="display:none">
+          <h3>Popular Searches</h3>
+          <ul class="filter-list">
+            <li><a href="electricians-aylesbury.html" style="font-size:0.9rem;color:var(--primary,#2563eb)">⚡ Electricians in Aylesbury</a></li>
+          </ul>
+        </div>
       </aside>
 
       <!-- Main Content -->
@@ -183,6 +189,7 @@
           <li><a href="grow.html">Grow Online</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="electricians-aylesbury.html">Electricians in Aylesbury</a></li>
         </ul>
       </div>
       <div class="footer-newsletter">
@@ -240,6 +247,7 @@
     function applyFilters() {
       const query = document.getElementById('search-input').value.toLowerCase().trim();
       const category = document.querySelector('input[name="category"]:checked').value;
+      document.getElementById('popular-searches-block').style.display = category === 'trades' ? 'block' : 'none';
       const tier = document.querySelector('input[name="tier"]:checked').value;
       const sort = document.getElementById('sort-select').value;
 
