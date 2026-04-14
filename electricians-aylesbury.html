@@ -69,6 +69,39 @@
     </div>
   </section>
 
+  <!-- Lead Capture Form -->
+  <section class="section" style="background:var(--bg-light,#f8fafc)">
+    <div class="container">
+      <div style="max-width:600px;margin:0 auto">
+        <h2 style="margin-bottom:0.5rem">Get a Free Quote from a Local Electrician</h2>
+        <p style="color:var(--text-muted,#555);margin-bottom:1.75rem">Fill in your details below and we'll connect you with trusted electricians in Aylesbury. Free, no obligation.</p>
+
+        <div id="quote-thanks" class="lead-capture-thanks" style="display:none;background:#d1fae5;border:1px solid #6ee7b7;border-radius:8px;padding:1.25rem;color:#065f46;font-weight:500;margin-bottom:1rem">
+          ✅ Thanks! We'll be in touch shortly with local electricians who can help.
+        </div>
+        <div id="quote-error" style="display:none;background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:1.25rem;color:#991b1b;margin-bottom:1rem">
+          Something went wrong — please try again or email us directly at <a href="mailto:aylesburybusiness@gmail.com">aylesburybusiness@gmail.com</a>.
+        </div>
+
+        <form id="quote-form" action="/.netlify/functions/electrician-quote-request" method="POST" onsubmit="handleQuoteForm(event)">
+          <!-- Honeypot -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="lc-row" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem">
+            <input type="text"  name="name"     placeholder="Full Name"     required style="padding:0.75rem 1rem;border:1px solid #d1d5db;border-radius:6px;font-size:0.95rem;font-family:inherit;width:100%;box-sizing:border-box" />
+            <input type="tel"   name="phone"    placeholder="Phone Number"  required style="padding:0.75rem 1rem;border:1px solid #d1d5db;border-radius:6px;font-size:0.95rem;font-family:inherit;width:100%;box-sizing:border-box" />
+          </div>
+          <div class="lc-row" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem">
+            <input type="email" name="email"    placeholder="Email Address" required style="padding:0.75rem 1rem;border:1px solid #d1d5db;border-radius:6px;font-size:0.95rem;font-family:inherit;width:100%;box-sizing:border-box" />
+            <input type="text"  name="postcode" placeholder="Postcode"      required style="padding:0.75rem 1rem;border:1px solid #d1d5db;border-radius:6px;font-size:0.95rem;font-family:inherit;width:100%;box-sizing:border-box" />
+          </div>
+          <textarea name="job" placeholder="Describe the work you need — e.g. new sockets, fuse board upgrade, EV charger, full rewire…" required rows="4" style="width:100%;box-sizing:border-box;padding:0.75rem 1rem;border:1px solid #d1d5db;border-radius:6px;font-size:0.95rem;font-family:inherit;margin-bottom:0.75rem;resize:vertical"></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%;padding:0.85rem;font-size:1rem" id="quote-submit">Get My Free Quote →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container cta-inner">
@@ -220,6 +253,44 @@
         document.getElementById('schema-jsonld').textContent = JSON.stringify(schema, null, 2);
       });
     });
+
+    // Show success / error state on page load if redirected back from function
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('sent') === '1') {
+        document.getElementById('quote-form').style.display = 'none';
+        document.getElementById('quote-thanks').style.display = 'block';
+        document.getElementById('quote-thanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (params.get('error')) {
+        document.getElementById('quote-error').style.display = 'block';
+      }
+    })();
+
+    function handleQuoteForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('quote-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      const data = new FormData(form);
+      fetch('/.netlify/functions/electrician-quote-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString(),
+      })
+        .then(res => {
+          // Function redirects, so any 2xx/3xx means success
+          form.style.display = 'none';
+          document.getElementById('quote-thanks').style.display = 'block';
+          document.getElementById('quote-thanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.textContent = 'Get My Free Quote →';
+          document.getElementById('quote-error').style.display = 'block';
+        });
+    }
 
     function handleFooterNl(e, form, thanksId) {
       e.preventDefault();
