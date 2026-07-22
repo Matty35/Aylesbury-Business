@@ -356,7 +356,13 @@
       }
       if (params.get('error')) {
         const el = document.getElementById('form-error');
-        if (el) { el.classList.remove('hidden'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        if (el) {
+          if (params.get('error') === 'config') {
+            el.textContent = '⚠️ Listing submissions are temporarily unavailable due to a technical issue on our side. Please email us at aylesburybusiness@gmail.com and we\'ll add your listing for you.';
+          }
+          el.classList.remove('hidden');
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     });
   </script>
