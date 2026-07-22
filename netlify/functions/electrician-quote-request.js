@@ -73,10 +73,10 @@ exports.handler = async (event) => {
       <tr><td><strong>Postcode</strong></td><td>${postcode}</td></tr>
       <tr><td><strong>Job description</strong></td><td>${job}</td></tr>
     </table>
-    <p style="margin-top:20px;color:#666;font-size:13px">Submitted via aylesburybusiness.co.uk/electricians-aylesbury</p>
+    <p style="margin-top:20px;color:#666;font-size:13px">Submitted via www.aylesburybusiness.directory/electricians-aylesbury</p>
   `;
 
-  const text = `New Electrician Quote Request\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nPostcode: ${postcode}\nJob: ${job}\n\nSubmitted via aylesburybusiness.co.uk/electricians-aylesbury`;
+  const text = `New Electrician Quote Request\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nPostcode: ${postcode}\nJob: ${job}\n\nSubmitted via www.aylesburybusiness.directory/electricians-aylesbury`;
 
   try {
     const result = await sendEmail(RESEND_API_KEY, {
