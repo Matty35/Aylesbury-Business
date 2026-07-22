@@ -93,9 +93,9 @@ exports.handler = async (event) => {
     featured:  process.env.STRIPE_LINK_FEATURED,
   };
 
-  if (!TOKEN) {
-    console.error('GITHUB_TOKEN not set');
-    return { statusCode: 500, body: 'Server configuration error' };
+  if (!TOKEN || !REPO) {
+    console.error('GITHUB_TOKEN and/or GITHUB_REPO not set');
+    return redirect('/add-listing.html?error=config');
   }
 
   const f = parseBody(event.body);
@@ -104,12 +104,16 @@ exports.handler = async (event) => {
   if (f._honey) return redirect('/add-listing.html?sent=1');
 
   const tier = f['tier'];
+  if (tier !== 'standard' && tier !== 'featured') {
+    return redirect('/add-listing.html?error=tier');
+  }
   if (!STRIPE_LINKS[tier]) {
-    return { statusCode: 400, body: 'Invalid tier' };
+    console.error(`Stripe payment link env var not set for tier "${tier}" (STRIPE_LINK_${tier.toUpperCase()})`);
+    return redirect('/add-listing.html?error=config');
   }
 
   const name = f['biz-name'];
-  if (!name) return { statusCode: 400, body: 'Business name required' };
+  if (!name) return redirect('/add-listing.html?error=name');
 
   const id = uniqueId();
 
@@ -168,8 +172,8 @@ exports.handler = async (event) => {
     return redirect(stripeUrl);
 
   } catch (err) {
-    console.error('Error saving pending listing:', err);
-    return { statusCode: 500, body: 'Error saving listing' };
+    console.error('Error saving pending listing:', err.message || err);
+    return redirect('/add-listing.html?error=save');
   }
 };
 

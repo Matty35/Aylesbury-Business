@@ -69,8 +69,8 @@ exports.handler = async (event) => {
 
   console.log('ENV CHECK — TOKEN set:', !!TOKEN, '| REPO:', REPO, '| BRANCH:', BRANCH);
 
-  if (!TOKEN) {
-    console.error('GITHUB_TOKEN env var not set');
+  if (!TOKEN || !REPO) {
+    console.error('GITHUB_TOKEN and/or GITHUB_REPO env var not set');
     return redirect('/add-listing.html?error=config');
   }
 
@@ -128,7 +128,7 @@ exports.handler = async (event) => {
     const get = await githubRequest('GET', `${filePath}?ref=${BRANCH}`, null, TOKEN);
 
     if (get.status !== 200) {
-      console.error('Failed to read listings.json:', get.body);
+      console.error(`Failed to read listings.json (status ${get.status}):`, get.body);
       return redirect('/add-listing.html?error=read');
     }
 
@@ -154,7 +154,7 @@ exports.handler = async (event) => {
     );
 
     if (put.status !== 200 && put.status !== 201) {
-      console.error('Failed to commit listing:', put.body);
+      console.error(`Failed to commit listing (status ${put.status}):`, put.body);
       return redirect('/add-listing.html?error=save');
     }
 
