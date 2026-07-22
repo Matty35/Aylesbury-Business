@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Electricians in Aylesbury | Aylesbury Business Directory</title>
   <meta name="description" content="Looking for a trusted electrician in Aylesbury? Browse local electricians serving Aylesbury and Buckinghamshire. Compare, contact and get quotes today." />
-  <link rel="canonical" href="https://www.aylesburybusiness.co.uk/electricians-aylesbury" />
+  <link rel="canonical" href="https://www.aylesburybusiness.directory/electricians-aylesbury" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -214,8 +214,8 @@
           '@graph': [
             {
               '@type': 'WebPage',
-              '@id': 'https://www.aylesburybusiness.co.uk/electricians-aylesbury',
-              'url': 'https://www.aylesburybusiness.co.uk/electricians-aylesbury',
+              '@id': 'https://www.aylesburybusiness.directory/electricians-aylesbury',
+              'url': 'https://www.aylesburybusiness.directory/electricians-aylesbury',
               'name': 'Electricians in Aylesbury | Aylesbury Business Directory',
               'description': 'Looking for a trusted electrician in Aylesbury? Browse local electricians serving Aylesbury and Buckinghamshire.'
             },
@@ -229,12 +229,12 @@
                 'position': i + 1,
                 'item': Object.fromEntries(Object.entries({
                   '@type': 'LocalBusiness',
-                  '@id': 'https://www.aylesburybusiness.co.uk/business.html?slug=' + b.slug,
+                  '@id': 'https://www.aylesburybusiness.directory/business.html?slug=' + b.slug,
                   'name': b.name,
                   'description': b.shortDescription || undefined,
                   'telephone': b.phone || undefined,
                   'email': b.email || undefined,
-                  'url': b.website || ('https://www.aylesburybusiness.co.uk/business.html?slug=' + b.slug),
+                  'url': b.website || ('https://www.aylesburybusiness.directory/business.html?slug=' + b.slug),
                   'address': {
                     '@type': 'PostalAddress',
                     'streetAddress': (b.address && b.address.street) || undefined,
