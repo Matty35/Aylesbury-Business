@@ -7,7 +7,7 @@
   <meta name="description" content="Discover the best local businesses in Aylesbury, Buckinghamshire. Search trades, restaurants, shops, health & beauty, automotive and professional services." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -34,6 +34,7 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
+        <span class="hero-eyebrow">Aylesbury &amp; Buckinghamshire</span>
         <h1>Find the Best Local Businesses in <span class="highlight">Aylesbury</span></h1>
         <p class="hero-subtitle">Your trusted directory for Aylesbury and Buckinghamshire – from trades and restaurants to shops and professional services.</p>
       </div>
@@ -56,11 +57,9 @@
         </form>
       </div>
       <div class="hero-stats">
-        <span><strong id="total-count">–</strong> businesses listed</span>
-        <span>•</span>
-        <span>Aylesbury &amp; Buckinghamshire</span>
-        <span>•</span>
-        <span>Free to search</span>
+        <span class="hero-chip"><strong id="total-count">–</strong> businesses listed</span>
+        <span class="hero-chip">Local &amp; independent</span>
+        <span class="hero-chip">Free to search</span>
       </div>
     </div>
   </section>
@@ -112,47 +111,47 @@
       </div>
       <div class="category-grid">
         <a href="businesses.html?category=trades" class="category-card">
-          <span class="cat-icon">🔧</span>
+          <span class="cat-icon" data-icon="trades"></span>
           <span class="cat-name">Trades &amp; Home</span>
           <span class="cat-count" data-cat="trades">–</span>
         </a>
         <a href="businesses.html?category=food-drink" class="category-card">
-          <span class="cat-icon">🍽️</span>
+          <span class="cat-icon" data-icon="food-drink"></span>
           <span class="cat-name">Food &amp; Drink</span>
           <span class="cat-count" data-cat="food-drink">–</span>
         </a>
         <a href="businesses.html?category=health-beauty" class="category-card">
-          <span class="cat-icon">💆</span>
+          <span class="cat-icon" data-icon="health-beauty"></span>
           <span class="cat-name">Health &amp; Beauty</span>
           <span class="cat-count" data-cat="health-beauty">–</span>
         </a>
         <a href="businesses.html?category=automotive" class="category-card">
-          <span class="cat-icon">🚗</span>
+          <span class="cat-icon" data-icon="automotive"></span>
           <span class="cat-name">Automotive</span>
           <span class="cat-count" data-cat="automotive">–</span>
         </a>
         <a href="businesses.html?category=professional-services" class="category-card">
-          <span class="cat-icon">💼</span>
+          <span class="cat-icon" data-icon="professional-services"></span>
           <span class="cat-name">Professional Services</span>
           <span class="cat-count" data-cat="professional-services">–</span>
         </a>
         <a href="businesses.html?category=retail" class="category-card">
-          <span class="cat-icon">🛍️</span>
+          <span class="cat-icon" data-icon="retail"></span>
           <span class="cat-name">Retail &amp; Shopping</span>
           <span class="cat-count" data-cat="retail">–</span>
         </a>
         <a href="businesses.html?category=creative-media" class="category-card">
-          <span class="cat-icon">📸</span>
+          <span class="cat-icon" data-icon="creative-media"></span>
           <span class="cat-name">Creative &amp; Media</span>
           <span class="cat-count" data-cat="creative-media">–</span>
         </a>
         <a href="businesses.html?category=sports-leisure" class="category-card">
-          <span class="cat-icon">⚽</span>
+          <span class="cat-icon" data-icon="sports-leisure"></span>
           <span class="cat-name">Sports &amp; Leisure</span>
           <span class="cat-count" data-cat="sports-leisure">–</span>
         </a>
         <a href="businesses.html?category=family-kids" class="category-card">
-          <span class="cat-icon">👶</span>
+          <span class="cat-icon" data-icon="family-kids"></span>
           <span class="cat-name">Family &amp; Kids</span>
           <span class="cat-count" data-cat="family-kids">–</span>
         </a>
@@ -179,7 +178,7 @@
   <section class="seo-audit-banner">
     <div class="container seo-audit-banner-inner">
       <div>
-        <h2>Is Your Business Invisible Online? 🔍</h2>
+        <h2>Is Your Business Invisible Online?</h2>
         <p>Get a FREE website check and find out exactly why customers can't find you on Google — and what to do about it.</p>
       </div>
       <a href="free-seo-audit.html" class="btn btn-navy btn-lg">Get My Free Check →</a>
@@ -294,7 +293,7 @@
       return `<div class="offer-card">${badge}<div class="offer-card-header"><div class="offer-logo">${icon}</div><div><div class="offer-biz-name">${o.businessName}</div><div class="offer-biz-cat">${catLabel}</div></div></div><div class="offer-card-body"><div class="offer-title">${o.offerTitle}</div><p class="offer-desc">${o.offerDescription}</p><p class="offer-expiry">Offer ends <strong>${formatExpiry(o.expiryDate)}</strong></p><a href="business.html?slug=${o.slug}" class="btn btn-primary btn-sm">View Offer</a></div></div>`;
     }
     function renderSpotlight(s) {
-      const logo = s.logo ? `<img src="${s.logo}" alt="${s.businessName}" />` : `<span style="font-size:40px">🏢</span>`;
+      const logo = s.logo ? `<img src="${s.logo}" alt="${s.businessName}" />` : `<span class="spotlight-initial">${s.businessName.charAt(0).toUpperCase()}</span>`;
       return `<div class="spotlight-card"><div class="spotlight-logo-col"><div class="spotlight-logo">${logo}</div></div><div class="spotlight-body"><div class="spotlight-label">⭐ Business Spotlight</div><div class="spotlight-name">${s.businessName}</div><p class="spotlight-story">${s.story}</p><blockquote class="spotlight-quote">"${s.ownerQuote}"</blockquote><a href="business.html?slug=${s.slug}" class="btn btn-primary">View Their Listing →</a></div></div>`;
     }
 
