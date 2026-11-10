@@ -130,6 +130,34 @@
         .then(() => { form.style.display = 'none'; document.getElementById(thanksId).classList.add('visible'); })
         .catch(() => form.submit());
     }
+
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('lead-submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      const data = new URLSearchParams(new FormData(form)).toString();
+      fetch('/.netlify/functions/business-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data,
+      })
+        .then(res => res.json())
+        .then(result => {
+          if (result.ok) {
+            form.style.display = 'none';
+            document.getElementById('lead-thanks').classList.add('visible');
+          } else {
+            throw new Error(result.error || 'send failed');
+          }
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.textContent = 'Send Enquiry →';
+          alert('Sorry, something went wrong sending your enquiry. Please try again, or call the business directly.');
+        });
+    }
     document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const slug = params.get('slug');
@@ -156,7 +184,40 @@
 
     function renderProfile(b) {
       const catLabel = getCategoryLabel(b.category);
-      const tierBadge = b.tier === 'featured' ? '<span class="badge badge-featured">⭐ Featured</span>' : b.tier === 'standard' ? '<span class="badge badge-standard">Standard</span>' : '';
+      const tierBadge = b.tier === 'featured' ? '<span class="badge badge-featured">★ Featured</span>' : '';
+      const isPremium = b.tier === 'featured';
+
+      const leadForm = isPremium ? `
+        <div class="profile-lead-card">
+          <h2>Contact ${b.name}</h2>
+          <p class="lead-sub">Send a quick enquiry and they'll get back to you shortly.</p>
+          <form id="lead-form" onsubmit="handleLeadSubmit(event)">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="biz-name" value="${b.name}" />
+            <input type="hidden" name="biz-slug" value="${b.slug}" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lead-name">Your Name *</label>
+                <input type="text" id="lead-name" name="name" class="form-input" required />
+              </div>
+              <div class="form-group">
+                <label for="lead-phone">Phone Number *</label>
+                <input type="tel" id="lead-phone" name="phone" class="form-input" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lead-email">Email</label>
+              <input type="email" id="lead-email" name="email" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="lead-message">What do you need? *</label>
+              <textarea id="lead-message" name="message" class="form-textarea" placeholder="Tell them a little about the job or what you're looking for…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="lead-submit-btn">Send Enquiry →</button>
+          </form>
+          <div class="profile-lead-thanks" id="lead-thanks">✅ Thanks — your enquiry has been sent to ${b.name}. They'll be in touch soon!</div>
+        </div>
+      ` : '';
 
       document.getElementById('profile-main').innerHTML = `
         <div class="profile-header">
@@ -181,6 +242,8 @@
             ${b.tags.map(t => `<span class="tag">${t}</span>`).join('')}
           </div>` : ''}
         </div>
+
+        ${leadForm}
       `;
 
       const socialLinks = [];
