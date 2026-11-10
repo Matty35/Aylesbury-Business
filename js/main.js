@@ -89,7 +89,7 @@ function renderListingCard(b) {
   const isFeatured = b.tier === 'featured';
   const tierBadge = isFeatured
     ? '<span class="badge badge-featured">★ Featured</span>'
-    : b.tier === 'standard' ? '<span class="badge badge-standard">Standard</span>' : '';
+    : '';
   const initial = b.name.charAt(0).toUpperCase();
 
   const websiteLink = isFeatured && b.website

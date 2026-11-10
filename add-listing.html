@@ -46,22 +46,28 @@
           <label class="tier-card selected">
             <input type="radio" name="tier" value="free" checked />
             <h4>Free</h4>
-            <p>Basic listing with your business name, address and phone number.</p>
+            <p>Get your business found by local customers.</p>
+            <ul>
+              <li>Business name, address &amp; phone</li>
+              <li>Short description</li>
+              <li>Link to your website</li>
+              <li>Listed in your category</li>
+            </ul>
             <div class="tier-price">£0 / mo</div>
-          </label>
-          <label class="tier-card">
-            <input type="radio" name="tier" value="standard" />
-            <h4>Standard</h4>
-            <p>Full profile with description, website, social links and tags.</p>
-            <div class="tier-price">£5 / mo</div>
-            <span class="tier-payment-note">Payment via Stripe</span>
           </label>
           <label class="tier-card tier-card--featured">
             <input type="radio" name="tier" value="featured" />
-            <h4>Featured ⭐</h4>
-            <p>Top of search results, highlighted listing, priority support.</p>
-            <div class="tier-price">£9 / mo</div>
-            <span class="tier-payment-note">Payment via Stripe</span>
+            <h4>Premium ⭐</h4>
+            <p>Everything in Free, plus the tools to win more customers.</p>
+            <ul>
+              <li>Featured at the top of search results</li>
+              <li>Logo, photos &amp; social media links</li>
+              <li>Lead capture form on your listing</li>
+              <li>Free help &amp; support to grow your business</li>
+              <li>Free promotion on our social media</li>
+            </ul>
+            <div class="tier-price">£9.99 / mo</div>
+            <span class="tier-payment-note">Secure payment via Stripe · Cancel anytime</span>
           </label>
         </div>
       </div>
@@ -102,7 +108,42 @@
             <input type="tel" id="biz-phone" name="biz-phone" class="form-input" placeholder="01296 123456" required />
           </div>
 
-          <!-- Paid tiers only -->
+          <!-- Always visible: Category -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="biz-category">Category *</label>
+              <select id="biz-category" name="biz-category" class="form-select" required>
+                <option value="">Select a category…</option>
+                <option value="trades">Trades &amp; Home</option>
+                <option value="food-drink">Food &amp; Drink</option>
+                <option value="health-beauty">Health &amp; Beauty</option>
+                <option value="automotive">Automotive</option>
+                <option value="professional-services">Professional Services</option>
+                <option value="retail">Retail &amp; Shopping</option>
+                <option value="creative-media">Creative &amp; Media</option>
+                <option value="sports-leisure">Sports &amp; Leisure</option>
+                <option value="family-kids">Family &amp; Kids</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="biz-subcategory">Subcategory</label>
+              <input type="text" id="biz-subcategory" name="biz-subcategory" class="form-input" placeholder="e.g. Plumbing &amp; Heating" />
+            </div>
+          </div>
+
+          <!-- Always visible: Description -->
+          <div class="form-group">
+            <label for="biz-desc">Description *</label>
+            <textarea id="biz-desc" name="biz-desc" class="form-textarea" placeholder="Tell customers about your business, services, and what makes you stand out…" required></textarea>
+          </div>
+
+          <!-- Always visible: Website -->
+          <div class="form-group">
+            <label for="biz-website">Website URL</label>
+            <input type="url" id="biz-website" name="biz-website" class="form-input" placeholder="https://www.yourbusiness.co.uk" />
+          </div>
+
+          <!-- Premium tier only -->
           <div class="paid-fields hidden" id="paid-fields">
 
             <div class="form-group">
@@ -121,42 +162,10 @@
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="biz-category">Category *</label>
-                <select id="biz-category" name="biz-category" class="form-select">
-                  <option value="">Select a category…</option>
-                  <option value="trades">Trades &amp; Home</option>
-                  <option value="food-drink">Food &amp; Drink</option>
-                  <option value="health-beauty">Health &amp; Beauty</option>
-                  <option value="automotive">Automotive</option>
-                  <option value="professional-services">Professional Services</option>
-                  <option value="retail">Retail &amp; Shopping</option>
-                  <option value="creative-media">Creative &amp; Media</option>
-                  <option value="sports-leisure">Sports &amp; Leisure</option>
-                  <option value="family-kids">Family &amp; Kids</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="biz-subcategory">Subcategory</label>
-                <input type="text" id="biz-subcategory" name="biz-subcategory" class="form-input" placeholder="e.g. Plumbing &amp; Heating" />
-              </div>
-            </div>
-
             <div class="form-group">
-              <label for="biz-desc">Description *</label>
-              <textarea id="biz-desc" name="biz-desc" class="form-textarea" placeholder="Tell customers about your business, services, and what makes you stand out…"></textarea>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="biz-email">Business Email</label>
-                <input type="email" id="biz-email" name="biz-email" class="form-input" placeholder="info@yourbusiness.co.uk" />
-              </div>
-              <div class="form-group">
-                <label for="biz-website">Website URL</label>
-                <input type="url" id="biz-website" name="biz-website" class="form-input" placeholder="https://www.yourbusiness.co.uk" />
-              </div>
+              <label for="biz-email">Business Email</label>
+              <input type="email" id="biz-email" name="biz-email" class="form-input" placeholder="info@yourbusiness.co.uk" />
+              <p class="hint">We'll send enquiries from your lead capture form here.</p>
             </div>
 
             <div class="form-row">
@@ -197,7 +206,7 @@
           </div>
 
           <div id="payment-notice" class="hidden" style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:16px;margin-bottom:20px;color:#1e40af;font-size:14px;">
-            💳 You'll be redirected to Stripe to complete payment after submitting.
+            💳 You'll be taken to our secure Stripe checkout (£9.99/month, cancel anytime) after submitting.
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">Submit Your Listing</button>
@@ -264,30 +273,24 @@
 
   <script src="js/main.js"></script>
   <script>
-    const PAID_TIERS = ['standard', 'featured'];
+    const PAID_TIERS = ['featured'];
 
     function applyTier(tier) {
       const paidFields = document.getElementById('paid-fields');
       const notice     = document.getElementById('payment-notice');
       const btn        = document.getElementById('submit-btn');
       const form       = document.getElementById('add-listing-form');
-      const category   = document.getElementById('biz-category');
-      const desc       = document.getElementById('biz-desc');
 
       if (PAID_TIERS.includes(tier)) {
         paidFields.classList.remove('hidden');
         notice.classList.remove('hidden');
-        btn.textContent = 'Submit & Pay →';
-        category.required = true;
-        desc.required = true;
+        btn.textContent = 'Submit & Pay £9.99/mo →';
         // Route to paid function — it saves listing then redirects to Stripe
         form.action = '/.netlify/functions/create-paid-listing';
       } else {
         paidFields.classList.add('hidden');
         notice.classList.add('hidden');
-        btn.textContent = 'Submit Your Listing';
-        category.required = false;
-        desc.required = false;
+        btn.textContent = 'Submit Your Free Listing';
         // Route to free function — adds directly to listings.json
         form.action = '/.netlify/functions/submit-listing';
       }

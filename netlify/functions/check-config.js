@@ -41,9 +41,9 @@ exports.handler = async () => {
       GITHUB_TOKEN:          TOKEN ? 'set' : 'MISSING',
       GITHUB_REPO:           REPO || 'MISSING',
       GITHUB_BRANCH:         process.env.GITHUB_BRANCH || 'MISSING (falls back to "main")',
-      STRIPE_LINK_STANDARD:  process.env.STRIPE_LINK_STANDARD ? 'set' : 'MISSING',
       STRIPE_LINK_FEATURED:  process.env.STRIPE_LINK_FEATURED ? 'set' : 'MISSING',
       STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET ? 'set' : 'MISSING',
+      RESEND_API_KEY:        process.env.RESEND_API_KEY ? 'set' : 'MISSING',
     },
     githubReadTest: null,
     problems: [],
@@ -54,11 +54,14 @@ exports.handler = async () => {
   if (!process.env.GITHUB_BRANCH) {
     report.problems.push('GITHUB_BRANCH is not set, so functions fall back to "main" — this repo has no "main" branch, so every read will 404.');
   }
-  if (!process.env.STRIPE_LINK_STANDARD || !process.env.STRIPE_LINK_FEATURED) {
-    report.problems.push('One or both Stripe payment link env vars are missing — paid (Standard/Featured) submissions fail before reaching Stripe.');
+  if (!process.env.STRIPE_LINK_FEATURED) {
+    report.problems.push('STRIPE_LINK_FEATURED is missing — Premium (£9.99/mo) submissions fail before reaching Stripe.');
   }
   if (!process.env.STRIPE_WEBHOOK_SECRET) {
     report.problems.push('STRIPE_WEBHOOK_SECRET is not set — paid listings would never be activated after payment.');
+  }
+  if (!process.env.RESEND_API_KEY) {
+    report.problems.push('RESEND_API_KEY is not set — lead capture and quote request forms cannot send emails.');
   }
 
   if (TOKEN && REPO) {

@@ -1777,6 +1777,48 @@ h1, h2, h3, h4, .logo { font-family: var(--font-display); }
   box-shadow: 0 0 0 3px rgba(37,99,235,.14);
 }
 
+/* Pricing tiers (Add Your Business) */
+.tier-cards { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.tier-card { padding: 22px; border-radius: 16px; }
+.tier-card h4 { font-size: 17px; }
+.tier-card ul { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.tier-card ul li { font-size: 13px; color: var(--color-text-muted); padding-left: 20px; position: relative; line-height: 1.5; }
+.tier-card ul li::before { content: '✓'; position: absolute; left: 0; color: #059669; font-weight: 700; }
+.tier-card .tier-price { margin-top: 12px; font-size: 20px; font-family: var(--font-display); }
+.tier-card--featured:has(input:checked), .tier-card--featured.selected { border-color: var(--color-accent); background: #fffaf0; }
+.tier-card--featured ul li::before { color: var(--color-accent-dark); }
+
+/* Lead capture on premium profiles */
+.profile-lead-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-featured-border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.profile-lead-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d97706, #fbbf24, #d97706);
+}
+.profile-lead-card h2 { font-size: 20px; margin-bottom: 4px; }
+.profile-lead-card .lead-sub { color: var(--color-text-muted); font-size: 14px; margin-bottom: 18px; }
+.profile-lead-thanks {
+  display: none;
+  background: #d1fae5;
+  border: 1px solid #6ee7b7;
+  border-radius: 10px;
+  padding: 18px;
+  color: #065f46;
+  font-weight: 600;
+}
+.profile-lead-thanks.visible { display: block; }
+
 /* Mobile nav anchors below the (new) header height */
 @media (max-width: 700px) {
   .main-nav { top: 100%; }

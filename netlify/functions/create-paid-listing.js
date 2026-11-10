@@ -1,14 +1,14 @@
 // netlify/functions/create-paid-listing.js
-// Receives a paid (Standard/Featured) listing form POST.
+// Receives a Premium (paid) listing form POST.
 // Saves the listing as pending in data/pending-listings.json via GitHub API,
-// then redirects to the appropriate Stripe Payment Link with ?client_reference_id
+// then redirects to the Stripe Payment Link with ?client_reference_id
 // so the stripe-webhook function can activate it after payment.
 
 const https = require('https');
 
-// Stripe Payment Links are stored in Netlify environment variables:
-// STRIPE_LINK_STANDARD and STRIPE_LINK_FEATURED
-// Set these in Netlify dashboard → Site configuration → Environment variables
+// The Stripe Payment Link (£9.99/month Premium listing) is stored in the
+// Netlify environment variable STRIPE_LINK_FEATURED.
+// Set it in Netlify dashboard → Site configuration → Environment variables
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -89,8 +89,7 @@ exports.handler = async (event) => {
   const REPO   = process.env.GITHUB_REPO;
   const BRANCH = process.env.GITHUB_BRANCH || 'main';
   const STRIPE_LINKS = {
-    standard: process.env.STRIPE_LINK_STANDARD,
-    featured:  process.env.STRIPE_LINK_FEATURED,
+    featured: process.env.STRIPE_LINK_FEATURED,
   };
 
   if (!TOKEN || !REPO) {
@@ -104,11 +103,11 @@ exports.handler = async (event) => {
   if (f._honey) return redirect('/add-listing.html?sent=1');
 
   const tier = f['tier'];
-  if (tier !== 'standard' && tier !== 'featured') {
+  if (tier !== 'featured') {
     return redirect('/add-listing.html?error=tier');
   }
   if (!STRIPE_LINKS[tier]) {
-    console.error(`Stripe payment link env var not set for tier "${tier}" (STRIPE_LINK_${tier.toUpperCase()})`);
+    console.error('Stripe payment link env var STRIPE_LINK_FEATURED is not set');
     return redirect('/add-listing.html?error=config');
   }
 
