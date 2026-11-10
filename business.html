@@ -7,7 +7,7 @@
   <meta name="description" id="page-desc" content="Business listing on Aylesbury Business Directory." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -61,7 +61,7 @@
   <section class="seo-audit-banner">
     <div class="container seo-audit-banner-inner">
       <div>
-        <h2>Is Your Business Invisible Online? 🔍</h2>
+        <h2>Is Your Business Invisible Online?</h2>
         <p>Get a FREE website check and find out exactly why customers can't find you on Google — and what to do about it.</p>
       </div>
       <a href="free-seo-audit.html" class="btn btn-navy btn-lg">Get My Free Check →</a>
@@ -168,7 +168,7 @@
               ${tierBadge}
             </div>
             <h1 class="profile-name">${b.name}</h1>
-            <p class="profile-address">📍 ${b.address.street}, ${b.address.town}, ${b.address.postcode}</p>
+            <p class="profile-address">${[b.address?.street, b.address?.town, b.address?.postcode].filter(Boolean).join(', ')}</p>
           </div>
         </div>
 
@@ -199,10 +199,7 @@
           <div class="contact-row contact-address">
             <span class="contact-icon">📍</span>
             <address>
-              ${b.address.street}<br/>
-              ${b.address.town}<br/>
-              ${b.address.county}<br/>
-              ${b.address.postcode}
+              ${[b.address.street, b.address.town, b.address.county, b.address.postcode].filter(Boolean).join('<br/>')}
             </address>
           </div>` : ''}
           ${b.website ? `<a href="${b.website}" class="btn btn-primary btn-full" target="_blank" rel="noopener">Visit Website</a>` : ''}
