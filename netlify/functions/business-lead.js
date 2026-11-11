@@ -1,9 +1,10 @@
 // netlify/functions/business-lead.js
 // Receives an enquiry from the lead capture form on a Premium business
-// profile and emails it via the Resend API. Leads are delivered to the
-// directory inbox (and the business is named in the subject) so they can
-// be passed straight on — Resend's test sender can only deliver to the
-// account owner's inbox until a sending domain is verified.
+// profile and emails it via the Resend API to the business's own email
+// address (looked up server-side from listings.json) plus the directory
+// inbox. If sending from the site's domain fails (domain not yet
+// verified in Resend), it falls back to delivering to the directory
+// inbox only, so no lead is ever lost.
 //
 // Required env var in Netlify dashboard:
 //   RESEND_API_KEY
@@ -85,32 +86,81 @@ exports.handler = async (event) => {
 
   const e = { bizName: escapeHtml(bizName), name: escapeHtml(name), phone: escapeHtml(phone), email: escapeHtml(email), message: escapeHtml(message) };
 
-  const html = `
-    <h2>New Lead for ${e.bizName}</h2>
-    <table cellpadding="8" style="border-collapse:collapse;font-family:sans-serif;font-size:15px">
-      <tr><td><strong>Business</strong></td><td>${e.bizName}</td></tr>
-      <tr><td><strong>Customer name</strong></td><td>${e.name}</td></tr>
-      <tr><td><strong>Phone</strong></td><td>${e.phone}</td></tr>
-      <tr><td><strong>Email</strong></td><td>${e.email}</td></tr>
-      <tr><td><strong>Message</strong></td><td>${e.message}</td></tr>
-    </table>
-    <p style="margin-top:20px;color:#666;font-size:13px">Submitted via the lead capture form on www.aylesburybusiness.directory${bizSlug ? '/business.html?slug=' + escapeHtml(bizSlug) : ''}</p>
-  `;
+  // Look up the business's own email address server-side from the live
+  // listings data. Never trust an email address posted by the form —
+  // that would let spammers use this function to email anyone.
+  let bizEmail = '';
+  try {
+    const siteUrl = process.env.URL || 'https://www.aylesburybusiness.directory';
+    const res = await fetch(`${siteUrl}/data/listings.json`);
+    if (res.ok) {
+      const listings = await res.json();
+      const biz = listings.find(l => l.slug === bizSlug);
+      if (biz && biz.email) bizEmail = biz.email;
+    }
+  } catch (err) {
+    console.warn('Could not look up business email:', err.message);
+  }
 
-  const text = `New Lead for ${bizName}\n\nCustomer name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}\n\nSubmitted via the lead capture form on www.aylesburybusiness.directory`;
+  const OWNER = 'aylesburybusiness@gmail.com';
+
+  function buildBody(deliveredToBusiness) {
+    const note = !deliveredToBusiness && bizEmail
+      ? `<p style="margin-top:16px;padding:12px;background:#fef3c7;border-radius:6px;font-size:14px"><strong>⚠ This lead could not be delivered directly to ${escapeHtml(bizEmail)}</strong> — please forward it to them.</p>`
+      : '';
+    const html = `
+      <h2>New Lead for ${e.bizName}</h2>
+      <table cellpadding="8" style="border-collapse:collapse;font-family:sans-serif;font-size:15px">
+        <tr><td><strong>Business</strong></td><td>${e.bizName}</td></tr>
+        <tr><td><strong>Customer name</strong></td><td>${e.name}</td></tr>
+        <tr><td><strong>Phone</strong></td><td>${e.phone}</td></tr>
+        <tr><td><strong>Email</strong></td><td>${e.email}</td></tr>
+        <tr><td><strong>Message</strong></td><td>${e.message}</td></tr>
+      </table>
+      ${note}
+      <p style="margin-top:20px;color:#666;font-size:13px">Submitted via the lead capture form on www.aylesburybusiness.directory${bizSlug ? '/business.html?slug=' + escapeHtml(bizSlug) : ''}</p>
+    `;
+    const text = `New Lead for ${bizName}\n\nCustomer name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}\n`
+      + (!deliveredToBusiness && bizEmail ? `\n⚠ This lead could not be delivered directly to ${bizEmail} — please forward it to them.\n` : '')
+      + `\nSubmitted via the lead capture form on www.aylesburybusiness.directory`;
+    return { html, text };
+  }
+
+  const subject = `New Lead: ${bizName} — from ${name}`;
+  const replyTo = email !== 'Not provided' ? email : undefined;
 
   try {
-    const result = await sendEmail(RESEND_API_KEY, {
+    // First choice: send from the site's own domain to the business AND
+    // the directory inbox. Works once aylesburybusiness.directory is
+    // verified as a sending domain in Resend.
+    if (bizEmail) {
+      const body = buildBody(true);
+      const r1 = await sendEmail(RESEND_API_KEY, {
+        from: 'Aylesbury Business Directory <leads@aylesburybusiness.directory>',
+        to: [bizEmail, OWNER],
+        reply_to: replyTo,
+        subject,
+        html: body.html,
+        text: body.text,
+      });
+      if (r1.status < 400) return json(200, { ok: true });
+      console.warn('Domain send failed (is aylesburybusiness.directory verified in Resend?):', r1.body);
+    }
+
+    // Fallback: deliver to the directory inbox only, via Resend's test
+    // sender, flagging that it needs forwarding to the business.
+    const body = buildBody(false);
+    const r2 = await sendEmail(RESEND_API_KEY, {
       from: 'Aylesbury Business <onboarding@resend.dev>',
-      to: ['aylesburybusiness@gmail.com'],
-      reply_to: email !== 'Not provided' ? email : undefined,
-      subject: `New Lead: ${bizName} — from ${name}`,
-      html,
-      text,
+      to: [OWNER],
+      reply_to: replyTo,
+      subject,
+      html: body.html,
+      text: body.text,
     });
 
-    if (result.status >= 400) {
-      console.error('Resend error:', result.body);
+    if (r2.status >= 400) {
+      console.error('Resend error:', r2.body);
       return json(502, { ok: false, error: 'send' });
     }
 
